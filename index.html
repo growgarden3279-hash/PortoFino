@@ -52,7 +52,7 @@
             font-size: 2.3rem;
             letter-spacing: 2.5px;
             text-transform: uppercase;
-            color: #ffffff;
+            color: #000000;
             font-weight: 700;
         }
 
@@ -520,10 +520,7 @@
             document.getElementById('categories-menu').style.display = 'none';
             document.getElementById('subcategories-view').style.display = 'none';
             document.getElementById('catalog-view').style.display = 'block';
-
-            const filtered = productos.filter(p => p.categoria === categoria);
-            renderCatalog(filtered);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            renderProducts(productos.filter(p => p.categoria === categoria));
         }
 
         function goBackFromCatalog() {
@@ -534,31 +531,31 @@
             }
         }
 
-        function renderCatalog(items) {
+        function renderProducts(lista) {
             const container = document.getElementById('catalog-container');
             container.innerHTML = '';
 
-            if (items.length === 0) {
-                container.innerHTML = `<p style="text-align:center; color:#d1a3ac; padding: 20px;">No se encontraron productos.</p>`;
+            if (lista.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#d1a3ac; padding:20px;">No se encontraron productos.</p>';
                 return;
             }
 
-            items.forEach(prod => {
-                const mensaje = encodeURIComponent(`Hola! Me interesa este producto: *${prod.titulo}* (${prod.precio}). ¿Hay stock?`);
-                const whatsappLink = `https://wa.me/${whatsappNumber}?text=${mensaje}`;
+            lista.forEach(p => {
+                const mensaje = encodeURIComponent(`Hola! Me interesa el producto: *${p.titulo}* (${p.precio})`);
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${mensaje}`;
 
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
-                    <div class="img-container" onclick="openZoom('${prod.imagen}')">
-                        <img src="${prod.imagen}" alt="${prod.titulo}" loading="lazy" onerror="this.src='icono-perfumes.jpg'">
-                        <div class="zoom-hint">🔍 Toca para ampliar</div>
+                    <div class="img-container" onclick="openZoom('${p.imagen}')">
+                        <img src="${p.imagen}" alt="${p.titulo}" loading="lazy" onerror="this.style.display='none'">
+                        <span class="zoom-hint">🔍 Toca para ampliar</span>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title">${prod.titulo}</h3>
-                        <p class="card-description">${prod.descripcion}</p>
-                        <div class="card-price">${prod.precio}</div>
-                        <a href="${whatsappLink}" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a>
+                        <h3 class="card-title">${p.titulo}</h3>
+                        <p class="card-description">${p.descripcion}</p>
+                        <div class="card-price">${p.precio}</div>
+                        <a href="${whatsappUrl}" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a>
                     </div>
                 `;
                 container.appendChild(card);
@@ -567,26 +564,21 @@
 
         function handleSearch(query) {
             const text = query.toLowerCase().trim();
-            const catalogView = document.getElementById('catalog-view');
-            const categoriesMenu = document.getElementById('categories-menu');
-            const subcategoriesView = document.getElementById('subcategories-view');
-
             if (text === '') {
                 showCategoriesMenu();
                 return;
             }
 
-            categoriesMenu.style.display = 'none';
-            subcategoriesView.style.display = 'none';
-            catalogView.style.display = 'block';
+            document.getElementById('categories-menu').style.display = 'none';
+            document.getElementById('subcategories-view').style.display = 'none';
+            document.getElementById('catalog-view').style.display = 'block';
 
-            const filtered = productos.filter(p => 
+            const filtrados = productos.filter(p => 
                 p.titulo.toLowerCase().includes(text) || 
                 p.descripcion.toLowerCase().includes(text) ||
                 p.categoria.toLowerCase().includes(text)
             );
-
-            renderCatalog(filtered);
+            renderProducts(filtrados);
         }
 
         function openZoom(imgSrc) {
