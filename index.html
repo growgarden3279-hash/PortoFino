@@ -29,7 +29,7 @@
             background: linear-gradient(135deg, #38070e 0%, #5c0f1b 50%, #7d1525 100%);
             color: white;
             text-align: center;
-            padding: 35px 15px;
+            padding: 25px 15px;
             position: sticky;
             top: 0;
             z-index: 10;
@@ -45,6 +45,17 @@
             align-items: center;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .brand-logo {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #b83248;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            background-color: #2b080d;
         }
 
         header h1 {
@@ -64,7 +75,7 @@
             padding: 6px 20px;
             border-radius: 20px;
             font-size: 0.9rem;
-            margin-top: 12px;
+            margin-top: 10px;
             display: inline-block;
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
@@ -312,6 +323,7 @@
 
     <header>
         <div class="brand-container">
+            <img src="logo.jpg" alt="Logo Pedroso Store" class="brand-logo" onerror="this.style.display='none'">
             <h1 id="header-title">Pedroso Store</h1>
             <p id="header-subtitle"></p>
         </div>
