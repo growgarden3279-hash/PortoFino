@@ -53,18 +53,23 @@
             object-fit: cover;
             border-radius: 50%;
             border: 2px solid #b83248;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             background-color: #2b080d;
         }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: #000000;
-            font-weight: 700;
+        .brand-title-img {
+            max-width: 220px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            transform: scale(2.3); /* Cambia este número para ajustar el tamaño */
+            transform-origin: center;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        }
         }
 
         header p {
@@ -324,7 +329,7 @@
     <header>
         <div class="brand-container">
             <img src="logo.jpg" alt="Logo Pedroso Store" class="brand-logo" onerror="this.style.display='none'">
-            <h1 id="header-title">Pedroso Store</h1>
+            <img src="titulo.png" alt="Pedroso Store" class="brand-title-img" onerror="this.style.display='none'">
             <p id="header-subtitle"></p>
         </div>
     </header>
