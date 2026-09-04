@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -19,24 +19,24 @@
         }
 
         body {
-            background-color: #2b080d;
+            background-color: #080808; /* Negro puro y urbano */
             color: #f8fafc;
             padding-bottom: 40px;
             overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, #38070e 0%, #5c0f1b 50%, #7d1525 100%);
+            background: linear-gradient(135deg, #121212 0%, #1f0407 50%, #2b060a 100%);
             color: white;
             text-align: center;
             padding: 25px 15px;
             position: sticky;
             top: 0;
             z-index: 10;
-            box-shadow: 0 4px 20px rgba(92, 15, 27, 0.4);
-            border-bottom-left-radius: 35px;
-            border-bottom-right-radius: 35px;
-            border-bottom: 6px solid #b83248;
+            box-shadow: 0 4px 25px rgba(255, 30, 66, 0.25);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-bottom: 4px solid #ff1e42; /* Rojo furioso urbano */
         }
 
         .brand-container {
@@ -52,10 +52,10 @@
             height: 75px;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid #b83248;
+            border: 2px solid #ff1e42;
             margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            background-color: #2b080d;
+            box-shadow: 0 0 15px rgba(255, 30, 66, 0.4);
+            background-color: #000;
         }
 
         .brand-title-img {
@@ -67,7 +67,7 @@
             margin: 0 auto;
             transform: scale(1.3);
             transform-origin: center;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 2px 8px rgba(255,30,66,0.4));
         }
 
         /* Se ajusta automáticamente solo en celulares */
@@ -78,16 +78,18 @@
         }
 
         header p {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: #fdf2f4;
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 6px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffccd5;
+            background-color: rgba(255, 30, 66, 0.12);
+            padding: 6px 18px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             margin-top: 10px;
             display: inline-block;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 30, 66, 0.3);
         }
 
         .page-wrapper {
@@ -109,22 +111,23 @@
         .search-input {
             width: 100%;
             padding: 14px 18px;
-            border-radius: 18px;
-            border: 2px solid #5c0f1b;
+            border-radius: 16px;
+            border: 2px solid #222;
             font-size: 0.95rem;
             outline: none;
-            background-color: #38070e;
+            background-color: #141414;
             color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: border-color 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: all 0.2s ease;
         }
 
         .search-input::placeholder {
-            color: #d1a3ac;
+            color: #666;
         }
 
         .search-input:focus {
-            border-color: #b83248;
+            border-color: #ff1e42;
+            box-shadow: 0 0 10px rgba(255, 30, 66, 0.25);
         }
 
         .categories-grid {
@@ -134,20 +137,21 @@
         }
 
         .category-card {
-            background: #38070e; 
-            border-radius: 18px;
+            background: #141414; 
+            border-radius: 16px;
             padding: 16px 20px;
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             cursor: pointer;
-            border: 2px solid #5c0f1b; 
-            transition: transform 0.1s ease, border-color 0.2s ease;
+            border: 2px solid #222; 
+            transition: all 0.2s ease;
         }
 
         .category-card:hover {
-            border-color: #b83248;
+            border-color: #ff1e42;
+            transform: translateY(-2px);
         }
 
         .category-card:active {
@@ -157,24 +161,25 @@
         .category-thumb {
             width: 65px;
             height: 65px;
-            border-radius: 14px;
+            border-radius: 12px;
             object-fit: contain;
             object-position: center;
-            background-color: #2b080d;
+            background-color: #080808;
             flex-shrink: 0;
-            border: 1px solid #5c0f1b;
+            border: 1px solid #333;
             padding: 4px;
         }
 
         .category-info h2 {
             font-size: 1.12rem;
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .category-info p {
             font-size: 0.82rem;
-            color: #d1a3ac;
+            color: #999;
             margin-top: 3px;
         }
 
@@ -183,11 +188,11 @@
         }
 
         .btn-back {
-            background-color: #38070e;
-            color: #fbd5dc;
-            border: 2px solid #5c0f1b;
+            background-color: #141414;
+            color: #fff;
+            border: 2px solid #333;
             padding: 10px 18px;
-            border-radius: 20px;
+            border-radius: 16px;
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9rem;
@@ -195,9 +200,10 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            transition: border-color 0.2s;
         }
 
-        .btn-back:hover { border-color: #b83248; background-color: #5c0f1b; }
+        .btn-back:hover { border-color: #ff1e42; background-color: #1f0407; }
 
         .catalog {
             display: flex;
@@ -206,24 +212,24 @@
         }
 
         .card {
-            background: #38070e; 
-            border-radius: 18px;
+            background: #141414; 
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-            border: 2px solid #5c0f1b;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            border: 2px solid #222;
         }
 
         .img-container {
             width: 100%;
             height: 380px;
-            background-color: #2b080d; 
+            background-color: #0c0c0c; 
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             cursor: pointer;
             overflow: hidden;
-            border-bottom: 2px solid #5c0f1b;
+            border-bottom: 2px solid #222;
         }
 
         .card img {
@@ -237,14 +243,14 @@
             position: absolute;
             bottom: 12px;
             right: 12px;
-            background: rgba(43, 8, 13, 0.85);
-            color: #ffffff;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ccc;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 400;
+            font-weight: 500;
             pointer-events: none;
-            border: 1px solid #5c0f1b;
+            border: 1px solid #333;
         }
 
         .card-body { padding: 20px; }
@@ -253,26 +259,27 @@
             font-size: 1.15rem;
             margin-bottom: 6px;
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .card-description {
             font-size: 0.88rem;
-            color: #d1a3ac;
+            color: #aaa;
             margin-bottom: 14px;
             line-height: 1.45;
         }
 
         .card-price {
             font-size: 1.35rem;
-            font-weight: 700;
-            color: #fbd5dc;
+            font-weight: 800;
+            color: #ff4d6d;
             margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
         .btn-whatsapp {
             display: block;
-            background-color: #7d1525;
+            background: linear-gradient(135deg, #ff1e42 0%, #cc0022 100%);
             color: white;
             text-align: center;
             text-decoration: none;
@@ -280,8 +287,9 @@
             border-radius: 14px;
             font-weight: 700;
             font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(92, 15, 27, 0.4);
-            border: 1px solid #b83248;
+            box-shadow: 0 4px 15px rgba(255, 30, 66, 0.4);
+            border: none;
+            transition: transform 0.1s ease;
         }
 
         .btn-whatsapp:active { transform: scale(0.97); }
@@ -294,7 +302,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(20, 3, 6, 0.92);
+            background-color: rgba(0, 0, 0, 0.95);
             justify-content: center;
             align-items: center;
             padding: 10px;
@@ -305,9 +313,9 @@
             max-height: 85%;
             border-radius: 12px;
             object-fit: contain;
-            background: #38070e;
+            background: #141414;
             padding: 10px;
-            border: 2px solid #5c0f1b;
+            border: 2px solid #333;
         }
 
         .modal-close {
@@ -318,14 +326,14 @@
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
-            background: rgba(125, 21, 37, 0.9);
+            background: #ff1e42;
             width: 44px;
             height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #b83248;
+            border: none;
         }
     </style>
 </head>
@@ -335,7 +343,7 @@
         <div class="brand-container">
             <img src="logo.jpg" alt="Logo Pedroso Store" class="brand-logo" onerror="this.style.display='none'">
             <img src="titulo.png" alt="Pedroso Store" class="brand-title-img" onerror="this.style.display='none'">
-            <p id="header-subtitle"></p>
+            <p id="header-subtitle">Catálogo Urbano & Importados</p>
         </div>
     </header>
 
@@ -505,7 +513,7 @@
             { categoria: "perfumes-hombre", titulo: "Lattafa Asad Zanzibar", descripcion: "Eau de Parfum - Tropical, coco y salado.", precio: "Consultar", imagen: "perfumes/perfume (21).jpeg" },
             { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (White)", descripcion: "Eau de Parfum - Oriental floral almizclado.", precio: "Consultar", imagen: "perfumes/perfume (22).jpeg" },
             { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit (Iconic / Edición Especial)", descripcion: "Eau de Parfum - Elegante y sofisticado.", precio: "Consultar", imagen: "perfumes/perfume (23).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Fakhar Rose", descripcion: "Eau de Parfum - Floral blanco ambarado.", precio: "Consultar", imagen: "perfumes/perfume (24).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Fakhar Rose", descripcion: "Eau de Parfum - Floral blanco ambarado.",- precio: "Consultar", imagen: "perfumes/perfume (24).jpeg" },
             { categoria: "perfumes-mujer", titulo: "Lattafa Nebras", descripcion: "Eau de Parfum - Vainilla gourmand, cacao y frutos rojos.", precio: "Consultar", imagen: "perfumes/perfume (25).jpeg" },
             { categoria: "perfumes-mujer", titulo: "Lattafa Raghba", descripcion: "Eau de Parfum - Vainilla, oud y azúcar quemado.", precio: "Consultar", imagen: "perfumes/perfume (26).jpeg" },
             { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (Dubai Night / Blue)", descripcion: "Eau de Parfum - Amaderado aromático.", precio: "Consultar", imagen: "perfumes/perfume (27).jpeg" },
@@ -567,7 +575,7 @@
             container.innerHTML = '';
 
             if (lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#d1a3ac; padding:20px;">No se encontraron productos.</p>';
+                container.innerHTML = '<p style="text-align:center; color:#888; padding:20px;">No se encontraron productos.</p>';
                 return;
             }
 
