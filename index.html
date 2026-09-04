@@ -70,7 +70,6 @@
             filter: drop-shadow(0 2px 8px rgba(255,30,66,0.4));
         }
 
-        /* Se ajusta automáticamente solo en celulares */
         @media (max-width: 768px) {
             .brand-title-img {
                 transform: scale(0.9);
@@ -354,6 +353,7 @@
                 <input type="text" id="searchInput" class="search-input" placeholder="Buscar perfume, vaper, equipo de fútbol..." oninput="handleSearch(this.value)">
             </div>
 
+            <!-- MENÚ DE CATEGORÍAS PRINCIPALES -->
             <div id="categories-menu">
                 <div class="categories-grid">
                     <div class="category-card" onclick="showCategory('vapers')">
@@ -398,6 +398,7 @@
                 </div>
             </div>
 
+            <!-- SUBCATEGORÍAS DE PERFUMES -->
             <div id="subcategories-view" class="subcategories-section">
                 <button class="btn-back" onclick="showCategoriesMenu()">Volver a Categorías</button>
                 <div class="categories-grid">
@@ -422,6 +423,7 @@
                 </div>
             </div>
 
+            <!-- VISTA DE PRODUCTOS / CATÁLOGO -->
             <div id="catalog-view" class="catalog-section">
                 <button class="btn-back" onclick="goBackFromCatalog()">Volver</button>
                 <div id="catalog-container" class="catalog"></div>
@@ -430,6 +432,7 @@
         </div>
     </div>
 
+    <!-- MODAL DE ZOOM -->
     <div id="imageModal" class="modal" onclick="closeZoom()">
         <span class="modal-close">&times;</span>
         <img class="modal-img" id="modalImage">
@@ -513,7 +516,7 @@
             { categoria: "perfumes-hombre", titulo: "Lattafa Asad Zanzibar", descripcion: "Eau de Parfum - Tropical, coco y salado.", precio: "Consultar", imagen: "perfumes/perfume (21).jpeg" },
             { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (White)", descripcion: "Eau de Parfum - Oriental floral almizclado.", precio: "Consultar", imagen: "perfumes/perfume (22).jpeg" },
             { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit (Iconic / Edición Especial)", descripcion: "Eau de Parfum - Elegante y sofisticado.", precio: "Consultar", imagen: "perfumes/perfume (23).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Fakhar Rose", descripcion: "Eau de Parfum - Floral blanco ambarado.",- precio: "Consultar", imagen: "perfumes/perfume (24).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Fakhar Rose", descripcion: "Eau de Parfum - Floral blanco ambarado.", precio: "Consultar", imagen: "perfumes/perfume (24).jpeg" },
             { categoria: "perfumes-mujer", titulo: "Lattafa Nebras", descripcion: "Eau de Parfum - Vainilla gourmand, cacao y frutos rojos.", precio: "Consultar", imagen: "perfumes/perfume (25).jpeg" },
             { categoria: "perfumes-mujer", titulo: "Lattafa Raghba", descripcion: "Eau de Parfum - Vainilla, oud y azúcar quemado.", precio: "Consultar", imagen: "perfumes/perfume (26).jpeg" },
             { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (Dubai Night / Blue)", descripcion: "Eau de Parfum - Amaderado aromático.", precio: "Consultar", imagen: "perfumes/perfume (27).jpeg" },
