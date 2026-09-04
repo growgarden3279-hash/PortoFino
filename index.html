@@ -2,612 +2,155 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedroso Store - Catálogo Digital</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    
+    <meta name="description" content="Pedroso Store - Perfumes importados, Vapers Elfbar e Ignite, Body Splash, Conjuntos de fútbol.">
+    <meta property="og:title" content="Pedroso Store - Catálogo Digital">
+    <meta property="og:image" content="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: #2b080d;
-            color: #f8fafc;
-            padding-bottom: 40px;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, #38070e 0%, #5c0f1b 50%, #7d1525 100%);
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 4px 20px rgba(92, 15, 27, 0.4);
-            border-bottom-left-radius: 35px;
-            border-bottom-right-radius: 35px;
-            border-bottom: 6px solid #b83248;
-        }
-
-        .brand-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .brand-logo {
-            width: 75px;
-            height: 75px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid #b83248;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            background-color: #2b080d;
-        }
-
-        .brand-title-img {
-            max-width: 220px;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
-            transform: scale(2.3); /* Cambia este número para ajustar el tamaño */
-            transform-origin: center;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-        }
-        }
-        }
-
-        header p {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: #fdf2f4;
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 6px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            display: inline-block;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .page-wrapper {
-            position: relative;
-            max-width: 1150px;
-            margin: 0 auto;
-            padding: 25px 15px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .search-container {
-            margin-bottom: 22px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 14px 18px;
-            border-radius: 18px;
-            border: 2px solid #5c0f1b;
-            font-size: 0.95rem;
-            outline: none;
-            background-color: #38070e;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: border-color 0.2s;
-        }
-
-        .search-input::placeholder {
-            color: #d1a3ac;
-        }
-
-        .search-input:focus {
-            border-color: #b83248;
-        }
-
-        .categories-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .category-card {
-            background: #38070e; 
-            border-radius: 18px;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            border: 2px solid #5c0f1b; 
-            transition: transform 0.1s ease, border-color 0.2s ease;
-        }
-
-        .category-card:hover {
-            border-color: #b83248;
-        }
-
-        .category-card:active {
-            transform: scale(0.97);
-        }
-
-        .category-thumb {
-            width: 65px;
-            height: 65px;
-            border-radius: 14px;
-            object-fit: contain;
-            object-position: center;
-            background-color: #2b080d;
-            flex-shrink: 0;
-            border: 1px solid #5c0f1b;
-            padding: 4px;
-        }
-
-        .category-info h2 {
-            font-size: 1.12rem;
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .category-info p {
-            font-size: 0.82rem;
-            color: #d1a3ac;
-            margin-top: 3px;
-        }
-
-        .catalog-section, .subcategories-section {
-            display: none;
-        }
-
-        .btn-back {
-            background-color: #38070e;
-            color: #fbd5dc;
-            border: 2px solid #5c0f1b;
-            padding: 10px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-back:hover { border-color: #b83248; background-color: #5c0f1b; }
-
-        .catalog {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-        }
-
-        .card {
-            background: #38070e; 
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-            border: 2px solid #5c0f1b;
-        }
-
-        .img-container {
-            width: 100%;
-            height: 380px;
-            background-color: #2b080d; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            border-bottom: 2px solid #5c0f1b;
-        }
-
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 15px;
-        }
-
-        .zoom-hint {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(43, 8, 13, 0.85);
-            color: #ffffff;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 400;
-            pointer-events: none;
-            border: 1px solid #5c0f1b;
-        }
-
-        .card-body { padding: 20px; }
-
-        .card-title {
-            font-size: 1.15rem;
-            margin-bottom: 6px;
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .card-description {
-            font-size: 0.88rem;
-            color: #d1a3ac;
-            margin-bottom: 14px;
-            line-height: 1.45;
-        }
-
-        .card-price {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #fbd5dc;
-            margin-bottom: 16px;
-        }
-
-        .btn-whatsapp {
-            display: block;
-            background-color: #7d1525;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(92, 15, 27, 0.4);
-            border: 1px solid #b83248;
-        }
-
-        .btn-whatsapp:active { transform: scale(0.97); }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(20, 3, 6, 0.92);
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-
-        .modal-img {
-            max-width: 95%;
-            max-height: 85%;
-            border-radius: 12px;
-            object-fit: contain;
-            background: #38070e;
-            padding: 10px;
-            border: 2px solid #5c0f1b;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            background: rgba(125, 21, 37, 0.9);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #b83248;
-        }
+        *{box-sizing:border-box;margin:0;padding:0;font-family:'Montserrat',sans-serif;-webkit-tap-highlight-color:transparent}
+        body{background:#2b080d;color:#f8fafc;padding-bottom:40px;overflow-x:hidden}
+        header{background:linear-gradient(135deg,#38070e 0%,#5c0f1b 50%,#7d1525 100%);text-align:center;padding:22px 15px 20px;position:sticky;top:0;z-index:10;box-shadow:0 4px 20px rgba(92,15,27,.4);border-bottom-left-radius:32px;border-bottom-right-radius:32px;border-bottom:5px solid #b83248}
+        .brand-container{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+        .brand-logo{width:70px;height:70px;object-fit:cover;border-radius:50%;border:2px solid #b83248;margin-bottom:10px;background:#2b080d}
+        .brand-title-img{max-width:200px;width:100%;height:auto;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+        header p{font-family:'Playfair Display',serif;font-style:italic;color:#fdf2f4;background:rgba(255,255,255,.12);padding:6px 18px;border-radius:20px;font-size:.85rem;margin-top:8px;border:1px solid rgba(255,255,255,.2)}
+        .page-wrapper{max-width:1150px;margin:0 auto;padding:20px 15px}
+        .container{max-width:600px;margin:0 auto}
+        .search-input{width:100%;padding:14px 18px;border-radius:18px;border:2px solid #5c0f1b;font-size:.95rem;outline:none;background:#38070e;color:#fff}
+        .search-input::placeholder{color:#d1a3ac}.search-input:focus{border-color:#b83248}
+        .categories-grid{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+        .category-card{background:#38070e;border-radius:18px;padding:14px 18px;display:flex;align-items:center;gap:15px;cursor:pointer;border:2px solid #5c0f1b;transition:.15s}
+        .category-card:active{transform:scale(.97)}.category-card:hover{border-color:#b83248}
+        .category-thumb{width:62px;height:62px;border-radius:14px;object-fit:contain;background:#2b080d;border:1px solid #5c0f1b;padding:4px;flex-shrink:0}
+        .category-info h2{font-size:1.05rem;font-weight:600;color:#fff}.category-info p{font-size:.8rem;color:#d1a3ac;margin-top:2px}
+        .catalog-section,.subcategories-section{display:none}
+        .btn-back{background:#38070e;color:#fbd5dc;border:2px solid #5c0f1b;padding:10px 16px;border-radius:20px;cursor:pointer;font-weight:600;margin-bottom:16px}
+        .catalog{display:flex;flex-direction:column;gap:20px}
+        .card{background:#38070e;border-radius:18px;overflow:hidden;border:2px solid #5c0f1b}
+        .img-container{width:100%;height:380px;background:#2b080d;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;overflow:hidden;border-bottom:2px solid #5c0f1b}
+        .card img{width:100%;height:100%;object-fit:contain;padding:15px}
+        .zoom-hint{position:absolute;bottom:10px;right:10px;background:rgba(20,3,6,.8);color:#fff;padding:5px 10px;border-radius:20px;font-size:.7rem;border:1px solid #5c0f1b}
+        .variants{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+        .variant-thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;border:2px solid transparent;cursor:pointer;background:#2b080d}
+        .variant-thumb.active{border-color:#b83248}
+        .card-body{padding:18px}.card-title{font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:5px}.card-description{font-size:.85rem;color:#d1a3ac;margin-bottom:10px;line-height:1.4}.card-price{font-size:1.3rem;font-weight:700;color:#fbd5dc;margin-bottom:14px}
+        .btn-whatsapp{display:block;background:#7d1525;color:#fff;text-align:center;text-decoration:none;padding:13px;border-radius:12px;font-weight:700;border:1px solid #b83248}
+        .modal{display:none;position:fixed;z-index:100;left:0;top:0;width:100%;height:100%;background:rgba(20,3,6,.92);justify-content:center;align-items:center;padding:10px}
+        .modal-img{max-width:95%;max-height:85%;border-radius:12px;object-fit:contain;background:#38070e;padding:10px;border:2px solid #5c0f1b}
+        .modal-close{position:absolute;top:18px;right:18px;color:#fff;font-size:26px;cursor:pointer;background:rgba(125,21,37,.9);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid #b83248}
+        .load-more{margin:20px auto;display:block;background:transparent;color:#fbd5dc;border:2px solid #5c0f1b;padding:10px 22px;border-radius:20px;cursor:pointer}
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="brand-container">
-            <img src="logo.jpg" alt="Logo Pedroso Store" class="brand-logo" onerror="this.style.display='none'">
-            <img src="titulo.png" alt="Pedroso Store" class="brand-title-img" onerror="this.style.display='none'">
-            <p id="header-subtitle"></p>
-        </div>
-    </header>
-
-    <div class="page-wrapper">
-        <div class="container">
-
-            <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar perfume, vaper, equipo de fútbol..." oninput="handleSearch(this.value)">
-            </div>
-
-            <div id="categories-menu">
-                <div class="categories-grid">
-                    <div class="category-card" onclick="showCategory('vapers')">
-                        <img src="vapers/vaper (1).jpeg" alt="Vapers" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
-                        <div class="category-info">
-                            <h2>Vapers y Pods</h2>
-                            <p>Elfbar Ice King, BC 15K e Ignite V250 Pro</p>
-                        </div>
-                    </div>
-
-                    <div class="category-card" onclick="showCategory('bodysplash')">
-                        <img src="bodysplash/bodysplash (1).png" alt="Body Splash" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
-                        <div class="category-info">
-                            <h2>Body Splash</h2>
-                            <p>Lociones corporales y fragancias frescas de uso diario</p>
-                        </div>
-                    </div>
-
-                    <div class="category-card" onclick="showPerfumeSubmenu()">
-                        <img src="icono-perfumes.jpg" alt="Fragancias" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
-                        <div class="category-info">
-                            <h2>Fragancias</h2>
-                            <p>Perfumes importados de alta gama (Hombre, Mujer y Unisex)</p>
-                        </div>
-                    </div>
-
-                    <div class="category-card" onclick="showCategory('cosmetica')">
-                        <img src="icono-cosmetica.jpg" alt="Cosmética" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
-                        <div class="category-info">
-                            <h2>Cosmética y Cuidado Personal</h2>
-                            <p>Tratamientos capilares, colágeno y aceites de la línea Karseell</p>
-                        </div>
-                    </div>
-
-                    <div class="category-card" onclick="showCategory('remeras')">
-                        <img src="icono-ropa.jpg" alt="Conjuntos de Fútbol" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
-                        <div class="category-info">
-                            <h2>Conjuntos De Futbol</h2>
-                            <p>Camisetas y shorts oficiales con tela dry-fit</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="subcategories-view" class="subcategories-section">
-                <button class="btn-back" onclick="showCategoriesMenu()">Volver a Categorías</button>
-                <div class="categories-grid">
-                    <div class="category-card" onclick="showCategory('perfumes-hombre')">
-                        <div class="category-info" style="padding-left: 5px;">
-                            <h2>Perfumes de Hombre</h2>
-                            <p>Fragancias masculinas, intensas y de alta fijación</p>
-                        </div>
-                    </div>
-                    <div class="category-card" onclick="showCategory('perfumes-mujer')">
-                        <div class="category-info" style="padding-left: 5px;">
-                            <h2>Perfumes de Mujer</h2>
-                            <p>Fragancias femeninas, dulces y florales</p>
-                        </div>
-                    </div>
-                    <div class="category-card" onclick="showCategory('perfumes-unisex')">
-                        <div class="category-info" style="padding-left: 5px;">
-                            <h2>Perfumes Unisex</h2>
-                            <p>Fragancias versátiles y orientales para todos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="catalog-view" class="catalog-section">
-                <button class="btn-back" onclick="goBackFromCatalog()">Volver</button>
-                <div id="catalog-container" class="catalog"></div>
-            </div>
-
-        </div>
+<header>
+    <div class="brand-container">
+        <img src="logo.jpg" alt="Logo" class="brand-logo" onerror="this.style.display='none'">
+        <img src="titulo.png" alt="Pedroso Store" class="brand-title-img" onerror="this.style.display='none'">
+        <p>Catálogo Exclusivo</p>
     </div>
-
-    <div id="imageModal" class="modal" onclick="closeZoom()">
-        <span class="modal-close">&times;</span>
-        <img class="modal-img" id="modalImage">
-    </div>
-
-    <script>
-        const whatsappNumber = "5491132903865";
-
-        const productos = [
-            // --- VAPERS ---
-            { categoria: "vapers", titulo: "Elfbar Ice King 40K Puff", descripcion: "Pod descartable de alta duración. Gran variedad de sabores frescos e intensos.", precio: "$38.500", imagen: "vapers/vaper (1).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar Ice King 40K Puff", descripcion: "Pod descartable de alta duración. Gran variedad de sabores frescos e intensos.", precio: "$38.500", imagen: "vapers/vaper (2).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar Ice King 40K Puff", descripcion: "Pod descartable de alta duración. Gran variedad de sabores frescos e intensos.", precio: "$38.500", imagen: "vapers/vaper (3).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar Ice King 40K Puff", descripcion: "Pod descartable de alta duración. Gran variedad de sabores frescos e intensos.", precio: "$38.500", imagen: "vapers/vaper (4).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar Ice King 40K Puff", descripcion: "Pod descartable de alta duración. Gran variedad de sabores frescos e intensos.", precio: "$38.500", imagen: "vapers/vaper (5).jpeg" },
-            { categoria: "vapers", titulo: "Ignite V250 Pro", descripcion: "Dispositivo vaper descartable de máxima gama y excelente rendimiento.", precio: "$37.500", imagen: "vapers/vaper (6).jpeg" },
-            { categoria: "vapers", titulo: "Ignite V250 Pro", descripcion: "Dispositivo vaper descartable de máxima gama y excelente rendimiento.", precio: "$37.500", imagen: "vapers/vaper (7).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar BC 15K Puff", descripcion: "Pod descartable con tecnología avanzada y excelente sabor.", precio: "$32.500", imagen: "vapers/vaper (8).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar BC 15K Puff", descripcion: "Pod descartable con tecnología avanzada y excelente sabor.", precio: "$32.500", imagen: "vapers/vaper (9).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar BC 15K Puff", descripcion: "Pod descartable con tecnología avanzada y excelente sabor.", precio: "$32.500", imagen: "vapers/vaper (10).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar BC 15K Puff", descripcion: "Pod descartable con tecnología avanzada y excelente sabor.", precio: "$32.500", imagen: "vapers/vaper (11).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar BC 15K Puff", descripcion: "Pod descartable con tecnología avanzada y excelente sabor.", precio: "$32.500", imagen: "vapers/vaper (12).jpeg" },
-            { categoria: "vapers", titulo: "Elfbar BC 15K Puff", descripcion: "Pod descartable con tecnología avanzada y excelente sabor.", precio: "$32.500", imagen: "vapers/vaper (13).jpeg" },
-            { categoria: "vapers", titulo: "Ignite V250 Pro", descripcion: "Dispositivo vaper descartable de máxima gama y excelente rendimiento.", precio: "$37.500", imagen: "vapers/vaper (14).jpeg" },
-
-            // --- BODY SPLASH ---
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Temptation", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Aroma floral y frutal fresco.", precio: "Consultar", imagen: "bodysplash/bodysplash (1).png" },
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Romantic", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Notas florales y almizcladas.", precio: "Consultar", imagen: "bodysplash/bodysplash (2).png" },
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Pure Seduction In Bloom", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Edición especial floral.", precio: "Consultar", imagen: "bodysplash/bodysplash (3).png" },
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Amber Romance In Bloom", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Cálido y envolvente.", precio: "Consultar", imagen: "bodysplash/bodysplash (4).png" },
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Aqua Kiss", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Notas frescas y acuáticas.", precio: "Consultar", imagen: "bodysplash/bodysplash (5).png" },
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Love Spell In Bloom", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Dulce, frutal y floral.", precio: "Consultar", imagen: "bodysplash/bodysplash (6).png" },
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Midnight Bloom", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Floral oscuro y cremoso.", precio: "Consultar", imagen: "bodysplash/bodysplash (7).png" },
-            { categoria: "bodysplash", titulo: "Body Splash Victoria's Secret - Pear Glacé", descripcion: "Fragancia corporal de 250 ml / 8.4 fl oz. Notas de pera azucarada.", precio: "Consultar", imagen: "bodysplash/bodysplash (8).png" },
-
-            // --- COSMÉTICA ---
-            { categoria: "cosmetica", titulo: "Máscara Capilar Karseell Maca Power Collagen (500ml)", descripcion: "Tratamiento reparador de colágeno y esencia de maca para cabello seco y químicamente tratado.", precio: "$15.000", imagen: "mascara-karseell.jpg" },
-            { categoria: "cosmetica", titulo: "Aceite Capilar Karseell Maca Essence Oil (50ml)", descripcion: "Sérum reparador prensado en frío con esencia de Maca y Macadamia.", precio: "$10.000", imagen: "aceite-karseell.jpg" },
-
-            // --- REMERAS / CONJUNTOS DE FÚTBOL ---
-            { categoria: "remeras", titulo: "Conjunto Selección de España", descripcion: "Conjunto suplente o de entrenamiento color turquesa/azul agua con detalles naranjas (Adidas).", precio: "$15.000", imagen: "remeras/remera (1).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto FC Barcelona", descripcion: "Conjunto alternativo gris oscuro/azul noche con franjas fucsias y logo de Spotify (Nike).", precio: "$15.000", imagen: "remeras/remera (2).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Real Madrid", descripcion: "Conjunto visitante o de entrenamiento gris oscuro con paneles verde lima (Adidas).", precio: "$15.000", imagen: "remeras/remera (3).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Inter de Milán", descripcion: "Conjunto azul oscuro con detalles blancos en los hombros y Qatar Airways (Nike).", precio: "$15.000", imagen: "remeras/remera (4).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Selección de Alemania (Retro)", descripcion: "Conjunto retro/casual negro con mangas blancas y colores de la bandera (Adidas Originals).", precio: "$15.000", imagen: "remeras/remera (5).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Selección de Alemania (Titular)", descripcion: "Conjunto titular blanco con detalles negros, rojos y vivos naranjas (Adidas).", precio: "$15.000", imagen: "remeras/remera (6).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Selección de Alemania (Bordó)", descripcion: "Conjunto alternativo color rojo oscuro/bordó con detalles negros y blancos (Adidas).", precio: "$15.000", imagen: "remeras/remera (7).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Selección de México", descripcion: "Conjunto alternativo o de entrenamiento negro con detalles en verde neón (Adidas).", precio: "$15.000", imagen: "remeras/remera (8).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Selección de Alemania (Rojo)", descripcion: "Conjunto alternativo rojo brillante con detalles negros y blancos (Adidas).", precio: "$15.000", imagen: "remeras/remera (9).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Olympique de Marsella", descripcion: "Conjunto azul oscuro con detalles y escudo en color naranja/rojo (Puma). Tela dry-fit.", precio: "$15.000", imagen: "remeras/remera (10).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Boca Juniors", descripcion: "Conjunto alternativo naranja con detalles en azul oscuro y Betsson (Adidas).", precio: "$15.000", imagen: "remeras/remera (11).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Manchester United (Retro)", descripcion: "Conjunto clásico color rojo con cuello blanco y pantalón negro (Adidas Originals).", precio: "$15.000", imagen: "remeras/remera (12).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Manchester City", descripcion: "Conjunto de entrenamiento especial con patrón geométrico abstracto azul y rosa (Puma).", precio: "$15.000", imagen: "remeras/remera (13).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Real Madrid (Urbano)", descripcion: "Conjunto de entrenamiento negro con bloques amarillo neón y fucsia, logo del caballo (Adidas).", precio: "$15.000", imagen: "remeras/remera (14).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Real Madrid (Ceniza)", descripcion: "Conjunto retro/casual gris oscuro o marrón ceniza con tres tiras y escudo blanco (Adidas).", precio: "$15.000", imagen: "remeras/remera (15).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Inter de Milán (Entrenamiento)", descripcion: "Conjunto de entrenamiento azul oscuro con detalles blancos y Qatar Airways (Nike).", precio: "$15.000", imagen: "remeras/remera (16).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Bayern Múnich (Retro)", descripcion: "Conjunto clásico color rojo oscuro/borgoña con sutiles franjas verticales (Adidas Originals).", precio: "$15.000", imagen: "remeras/remera (17).jpeg" },
-            { categoria: "remeras", titulo: "Conjunto Selección de Alemania (Edición Especial)", descripcion: "Conjunto titular blanco con detalles tricolores y vivos naranjas (Adidas).", precio: "$15.000", imagen: "remeras/remera (18).jpeg" },
-            // --- PERFUMES ---
-            { categoria: "perfumes-unisex", titulo: "Xerjoff Erba Pura", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (1).jpeg" },
-            { categoria: "perfumes-mujer", titulo: "Lattafa Yara (Pink)", descripcion: "Eau de Parfum - Notas dulces, tropicales y avainilladas.", precio: "Consultar", imagen: "perfumes/perfume (2).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Armaf Odyssey Tyrant Green", descripcion: "Eau de Parfum - Cítrico, aromático y amaderado.", precio: "Consultar", imagen: "perfumes/perfume (3).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Khamrah", descripcion: "Eau de Parfum - Especiado avainillado, cálido y lujoso.", precio: "Consultar", imagen: "perfumes/perfume (4).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Bade'e Al Oud (Oud for Glory)", descripcion: "Eau de Parfum - Amaderado, ahumado y profundo.", precio: "Consultar", imagen: "perfumes/perfume (5).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Asad", descripcion: "Eau de Parfum - Especiado, ámbar y cálido.", precio: "Consultar", imagen: "perfumes/perfume (6).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Bade'e Al Oud (Honor & Glory)", descripcion: "Eau de Parfum - Gourmand tropical amaderado.", precio: "Consultar", imagen: "perfumes/perfume (7).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (Gold)", descripcion: "Eau de Parfum - Frutal, dulce y ambarado.", precio: "Consultar", imagen: "perfumes/perfume (8).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (Tobacco Edition)", descripcion: "Eau de Parfum - Especiado tabaco y vainilla.", precio: "Consultar", imagen: "perfumes/perfume (9).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (Rouge)", descripcion: "Eau de Parfum - Ámbar floral amaderado.", precio: "Consultar", imagen: "perfumes/perfume (10).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit Intense Man", descripcion: "Eau de Parfum - Amaderado especiado de alta fijación.", precio: "Consultar", imagen: "perfumes/perfume (11).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit Urban Man Elixir", descripcion: "Eau de Parfum - Fresco, frutal y amaderado.", precio: "Consultar", imagen: "perfumes/perfume (12).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Afnan Turathi Blue", descripcion: "Eau de Parfum - Cítrico amaderado fresco.", precio: "Consultar", imagen: "perfumes/perfume (13).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Afnan 9PM", descripcion: "Eau de Parfum - Dulce, avainillado y ambarado.", precio: "Consultar", imagen: "perfumes/perfume (14).jpeg" },
-            { categoria: "perfumes-mujer", titulo: "Lattafa Yara (White / Moi)", descripcion: "Eau de Parfum - Cremoso, floral y almizclado.", precio: "Consultar", imagen: "perfumes/perfume (15).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Qaed Al Fursan", descripcion: "Eau de Parfum - Tropical, piña y amaderado.", precio: "Consultar", imagen: "perfumes/perfume (16).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Fakhar Black", descripcion: "Eau de Parfum - Aromático, frutal y fresco.", precio: "Consultar", imagen: "perfumes/perfume (17).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Paris Corner Emir Toffee Coffee", descripcion: "Eau de Parfum - Gourmand café y caramelo.", precio: "Consultar", imagen: "perfumes/perfume (18).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit Sillage / Milestone", descripcion: "Eau de Parfum - Fresco metálico y almizclado.", precio: "Consultar", imagen: "perfumes/perfume (19).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (Silver / Gris)", descripcion: "Eau de Parfum - Fresco amaderado verde.", precio: "Consultar", imagen: "perfumes/perfume (20).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Asad Zanzibar", descripcion: "Eau de Parfum - Tropical, coco y salado.", precio: "Consultar", imagen: "perfumes/perfume (21).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (White)", descripcion: "Eau de Parfum - Oriental floral almizclado.", precio: "Consultar", imagen: "perfumes/perfume (22).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit (Iconic / Edición Especial)", descripcion: "Eau de Parfum - Elegante y sofisticado.", precio: "Consultar", imagen: "perfumes/perfume (23).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Fakhar Rose", descripcion: "Eau de Parfum - Floral blanco ambarado.", precio: "Consultar", imagen: "perfumes/perfume (24).jpeg" },
-            { categoria: "perfumes-mujer", titulo: "Lattafa Nebras", descripcion: "Eau de Parfum - Vainilla gourmand, cacao y frutos rojos.", precio: "Consultar", imagen: "perfumes/perfume (25).jpeg" },
-            { categoria: "perfumes-mujer", titulo: "Lattafa Raghba", descripcion: "Eau de Parfum - Vainilla, oud y azúcar quemado.", precio: "Consultar", imagen: "perfumes/perfume (26).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud (Dubai Night / Blue)", descripcion: "Eau de Parfum - Amaderado aromático.", precio: "Consultar", imagen: "perfumes/perfume (27).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Lattafa Ameerat Al Arab", descripcion: "Eau de Parfum - Floral almizclado fresco.", precio: "Consultar", imagen: "perfumes/perfume (28).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Fragancia Importada Hombres / Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (29).jpeg" },
-            { categoria: "perfumes-hombre", titulo: "Fragancia Importada Hombres / Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (30).jpeg" },
-            { categoria: "perfumes-unisex", titulo: "Fragancia Oriental Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (31).jpeg" },
-            { categoria: "perfumes-unisex", titulo: "Fragancia Oriental Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (32).jpeg" },
-            { categoria: "perfumes-unisex", titulo: "Fragancia Oriental Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (33).jpeg" },
-            { categoria: "perfumes-mujer", titulo: "Fragancia Importada Femenina", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (34).jpeg" },
-            { categoria: "perfumes-unisex", titulo: "Fragancia Oriental Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (35).jpeg" },
-            { categoria: "perfumes-mujer", titulo: "Fragancia Importada Femenina", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (36).jpeg" },
-            { categoria: "perfumes-unisex", titulo: "Fragancia Oriental Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (37).jpeg" },
-            { categoria: "perfumes-mujer", titulo: "Fragancia Importada Femenina", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (38).jpeg" },
-            { categoria: "perfumes-unisex", titulo: "Fragancia Oriental Unisex", descripcion: "Eau de Parfum - Alta fijación y calidad importada.", precio: "Consultar", imagen: "perfumes/perfume (39).jpeg" }
-        ];
-
-        let currentActiveCategory = '';
-
-        function showCategoriesMenu() {
-            document.getElementById('categories-menu').style.display = 'block';
-            document.getElementById('subcategories-view').style.display = 'none';
-            document.getElementById('catalog-view').style.display = 'none';
-            document.getElementById('searchInput').value = '';
-        }
-
-        function showPerfumeSubmenu() {
-            document.getElementById('categories-menu').style.display = 'none';
-            document.getElementById('subcategories-view').style.display = 'block';
-            document.getElementById('catalog-view').style.display = 'none';
-        }
-
-        function showCategory(categoria) {
-            currentActiveCategory = categoria;
-            document.getElementById('categories-menu').style.display = 'none';
-            document.getElementById('subcategories-view').style.display = 'none';
-            document.getElementById('catalog-view').style.display = 'block';
-            renderProducts(productos.filter(p => p.categoria === categoria));
-        }
-
-        function goBackFromCatalog() {
-            if (currentActiveCategory.startsWith('perfumes-')) {
-                showPerfumeSubmenu();
-            } else {
-                showCategoriesMenu();
-            }
-        }
-
-        function renderProducts(lista) {
-            const container = document.getElementById('catalog-container');
-            container.innerHTML = '';
-
-            if (lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#d1a3ac; padding:20px;">No se encontraron productos.</p>';
-                return;
-            }
-
-            lista.forEach(p => {
-                const mensaje = encodeURIComponent(`Hola! Me interesa el producto: *${p.titulo}* (${p.precio})`);
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${mensaje}`;
-
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <div class="img-container" onclick="openZoom('${p.imagen}')">
-                        <img src="${p.imagen}" alt="${p.titulo}" loading="lazy" onerror="this.style.display='none'">
-                        <span class="zoom-hint">🔍 Toca para ampliar</span>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">${p.titulo}</h3>
-                        <p class="card-description">${p.descripcion}</p>
-                        <div class="card-price">${p.precio}</div>
-                        <a href="${whatsappUrl}" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function handleSearch(query) {
-            const text = query.toLowerCase().trim();
-            if (text === '') {
-                showCategoriesMenu();
-                return;
-            }
-
-            document.getElementById('categories-menu').style.display = 'none';
-            document.getElementById('subcategories-view').style.display = 'none';
-            document.getElementById('catalog-view').style.display = 'block';
-
-            const filtrados = productos.filter(p => 
-                p.titulo.toLowerCase().includes(text) || 
-                p.descripcion.toLowerCase().includes(text) ||
-                p.categoria.toLowerCase().includes(text)
-            );
-            renderProducts(filtrados);
-        }
-
-        function openZoom(imgSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'flex';
-            modalImg.src = imgSrc;
-        }
-
-        function closeZoom() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-    </script>
+</header>
+<div class="page-wrapper"><div class="container">
+    <input type="text" id="searchInput" class="search-input" placeholder="Buscar perfume, vaper, camiseta..." oninput="handleSearch(this.value)">
+    <div id="categories-menu"><div class="categories-grid">
+        <div class="category-card" onclick="showCategory('vapers')"><img src="vapers/vaper (1).jpeg" class="category-thumb"><div class="category-info"><h2>Vapers y Pods</h2><p>Ice King 40K, BC 15K, Ignite V250 Pro</p></div></div>
+        <div class="category-card" onclick="showCategory('bodysplash')"><img src="bodysplash/bodysplash (1).png" class="category-thumb"><div class="category-info"><h2>Body Splash</h2><p>Victoria's Secret 250ml</p></div></div>
+        <div class="category-card" onclick="showPerfumeSubmenu()"><img src="icono-perfumes.jpg" class="category-thumb"><div class="category-info"><h2>Fragancias</h2><p>Hombre, Mujer y Unisex</p></div></div>
+        <div class="category-card" onclick="showCategory('cosmetica')"><img src="icono-cosmetica.jpg" class="category-thumb"><div class="category-info"><h2>Cosmética</h2><p>Karseell y cuidado personal</p></div></div>
+        <div class="category-card" onclick="showCategory('remeras')"><img src="icono-ropa.jpg" class="category-thumb"><div class="category-info"><h2>Conjuntos De Futbol</h2><p>Dry-fit oficiales</p></div></div>
+    </div></div>
+    <div id="subcategories-view" class="subcategories-section"><button class="btn-back" onclick="showCategoriesMenu()">← Volver</button><div class="categories-grid"><div class="category-card" onclick="showCategory('perfumes-hombre')"><div class="category-info"><h2>Perfumes de Hombre</h2></div></div><div class="category-card" onclick="showCategory('perfumes-mujer')"><div class="category-info"><h2>Perfumes de Mujer</h2></div></div><div class="category-card" onclick="showCategory('perfumes-unisex')"><div class="category-info"><h2>Perfumes Unisex</h2></div></div></div></div>
+    <div id="catalog-view" class="catalog-section"><button class="btn-back" onclick="goBackFromCatalog()">← Volver</button><div id="catalog-container" class="catalog"></div><button id="loadMoreBtn" class="load-more" onclick="loadMore()" style="display:none">Ver más productos</button></div>
+</div></div>
+<div id="imageModal" class="modal" onclick="closeZoom()"><span class="modal-close">&times;</span><img class="modal-img" id="modalImage"></div>
+<script>
+const whatsappNumber="5491132903865";
+const PH="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='100%25' height='100%25' fill='%232b080d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23b83248' font-size='18'%3ESin imagen%3C/text%3E%3C/svg%3E";
+const productos=[
+{cat:"vapers",titulo:"Elfbar Ice King 40K Puff",desc:"Pod descartable 40K puffs. Sabores frescos e intensos.",precio:"$38.500",imgs:["vapers/vaper (1).jpeg","vapers/vaper (2).jpeg","vapers/vaper (3).jpeg","vapers/vaper (4).jpeg","vapers/vaper (5).jpeg"]},
+{cat:"vapers",titulo:"Ignite V250 Pro",desc:"Dispositivo descartable de máxima gama y rendimiento.",precio:"$37.500",imgs:["vapers/vaper (6).jpeg","vapers/vaper (7).jpeg","vapers/vaper (14).jpeg"]},
+{cat:"vapers",titulo:"Elfbar BC 15K Puff",desc:"Pod con tecnología avanzada y excelente sabor.",precio:"$32.500",imgs:["vapers/vaper (8).jpeg","vapers/vaper (9).jpeg","vapers/vaper (10).jpeg","vapers/vaper (11).jpeg","vapers/vaper (12).jpeg","vapers/vaper (13).jpeg"]},
+{cat:"bodysplash",titulo:"Body Splash - Temptation",desc:"Victoria's Secret 250ml / 8.4 fl oz. Floral y frutal fresco.",precio:"Consultar",imgs:["bodysplash/bodysplash (1).png"]},
+{cat:"bodysplash",titulo:"Body Splash - Romantic",desc:"Victoria's Secret 250ml. Notas florales y almizcladas.",precio:"Consultar",imgs:["bodysplash/bodysplash (2).png"]},
+{cat:"bodysplash",titulo:"Body Splash - Pure Seduction In Bloom",desc:"Victoria's Secret 250ml. Edición especial floral.",precio:"Consultar",imgs:["bodysplash/bodysplash (3).png"]},
+{cat:"bodysplash",titulo:"Body Splash - Amber Romance In Bloom",desc:"Victoria's Secret 250ml. Cálido y envolvente.",precio:"Consultar",imgs:["bodysplash/bodysplash (4).png"]},
+{cat:"bodysplash",titulo:"Body Splash - Aqua Kiss",desc:"Victoria's Secret 250ml. Notas frescas y acuáticas.",precio:"Consultar",imgs:["bodysplash/bodysplash (5).png"]},
+{cat:"bodysplash",titulo:"Body Splash - Love Spell In Bloom",desc:"Victoria's Secret 250ml. Dulce, frutal y floral.",precio:"Consultar",imgs:["bodysplash/bodysplash (6).png"]},
+{cat:"bodysplash",titulo:"Body Splash - Midnight Bloom",desc:"Victoria's Secret 250ml. Floral oscuro y cremoso.",precio:"Consultar",imgs:["bodysplash/bodysplash (7).png"]},
+{cat:"bodysplash",titulo:"Body Splash - Pear Glacé",desc:"Victoria's Secret 250ml. Notas de pera azucarada.",precio:"Consultar",imgs:["bodysplash/bodysplash (8).png"]},
+{cat:"cosmetica",titulo:"Máscara Capilar Karseell Maca Power Collagen 500ml",desc:"Tratamiento reparador de colágeno y maca para cabello seco.",precio:"$15.000",imgs:["mascara-karseell.jpg"]},
+{cat:"cosmetica",titulo:"Aceite Capilar Karseell Maca Essence Oil 50ml",desc:"Sérum reparador prensado en frío con Maca y Macadamia.",precio:"$10.000",imgs:["aceite-karseell.jpg"]},
+{cat:"remeras",titulo:"Conjunto Selección de España",desc:"Conjunto turquesa/azul agua con detalles naranjas (Adidas).",precio:"$15.000",imgs:["remeras/remera (1).jpeg"]},
+{cat:"remeras",titulo:"Conjunto FC Barcelona",desc:"Conjunto gris oscuro/azul noche con franjas fucsias (Nike).",precio:"$15.000",imgs:["remeras/remera (2).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Real Madrid",desc:"Conjunto gris oscuro con paneles verde lima (Adidas).",precio:"$15.000",imgs:["remeras/remera (3).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Inter de Milán",desc:"Conjunto azul oscuro con detalles blancos (Nike).",precio:"$15.000",imgs:["remeras/remera (4).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Selección de Alemania Retro",desc:"Negro con mangas blancas (Adidas Originals).",precio:"$15.000",imgs:["remeras/remera (5).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Selección de Alemania Titular",desc:"Blanco con detalles negros, rojos y naranjas (Adidas).",precio:"$15.000",imgs:["remeras/remera (6).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Selección de Alemania Bordó",desc:"Rojo oscuro/bordó con detalles blancos (Adidas).",precio:"$15.000",imgs:["remeras/remera (7).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Selección de México",desc:"Negro con detalles en verde neón (Adidas).",precio:"$15.000",imgs:["remeras/remera (8).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Selección de Alemania Rojo",desc:"Rojo brillante con detalles negros y blancos.",precio:"$15.000",imgs:["remeras/remera (9).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Olympique de Marsella",desc:"Azul oscuro con detalles naranja/rojo (Puma).",precio:"$15.000",imgs:["remeras/remera (10).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Boca Juniors",desc:"Naranja con azul oscuro y Betsson (Adidas).",precio:"$15.000",imgs:["remeras/remera (11).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Manchester United Retro",desc:"Rojo con cuello blanco y pantalón negro.",precio:"$15.000",imgs:["remeras/remera (12).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Manchester City",desc:"Patrón geométrico abstracto azul y rosa (Puma).",precio:"$15.000",imgs:["remeras/remera (13).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Real Madrid Urbano",desc:"Negro con bloques amarillo neón y fucsia.",precio:"$15.000",imgs:["remeras/remera (14).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Real Madrid Ceniza",desc:"Gris oscuro ceniza con tres tiras (Adidas).",precio:"$15.000",imgs:["remeras/remera (15).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Inter Entrenamiento",desc:"Azul oscuro con Qatar Airways (Nike).",precio:"$15.000",imgs:["remeras/remera (16).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Bayern Múnich Retro",desc:"Rojo oscuro/borgoña con franjas (Adidas).",precio:"$15.000",imgs:["remeras/remera (17).jpeg"]},
+{cat:"remeras",titulo:"Conjunto Alemania Edición Especial",desc:"Blanco con detalles tricolores y naranjas.",precio:"$15.000",imgs:["remeras/remera (18).jpeg"]},
+{cat:"perfumes-unisex",titulo:"Xerjoff Erba Pura",desc:"Eau de Parfum - Alta fijación importada.",precio:"Consultar",imgs:["perfumes/perfume (1).jpeg"]},
+{cat:"perfumes-mujer",titulo:"Lattafa Yara Pink",desc:"Notas dulces, tropicales y avainilladas.",precio:"Consultar",imgs:["perfumes/perfume (2).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Armaf Odyssey Tyrant Green",desc:"Cítrico, aromático y amaderado.",precio:"Consultar",imgs:["perfumes/perfume (3).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Khamrah",desc:"Especiado avainillado, cálido y lujoso.",precio:"Consultar",imgs:["perfumes/perfume (4).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Bade'e Al Oud Oud for Glory",desc:"Amaderado, ahumado y profundo.",precio:"Consultar",imgs:["perfumes/perfume (5).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Asad",desc:"Especiado, ámbar y cálido.",precio:"Consultar",imgs:["perfumes/perfume (6).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Bade'e Al Oud Honor & Glory",desc:"Gourmand tropical amaderado.",precio:"Consultar",imgs:["perfumes/perfume (7).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Al Haramain Amber Oud Gold",desc:"Frutal, dulce y ambarado.",precio:"Consultar",imgs:["perfumes/perfume (8).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Al Haramain Amber Oud Tobacco",desc:"Especiado tabaco y vainilla.",precio:"Consultar",imgs:["perfumes/perfume (9).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Al Haramain Amber Oud Rouge",desc:"Ámbar floral amaderado.",precio:"Consultar",imgs:["perfumes/perfume (10).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Armaf Club de Nuit Intense Man",desc:"Amaderado especiado alta fijación.",precio:"Consultar",imgs:["perfumes/perfume (11).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Armaf Club de Nuit Urban Man Elixir",desc:"Fresco, frutal y amaderado.",precio:"Consultar",imgs:["perfumes/perfume (12).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Afnan Turathi Blue",desc:"Cítrico amaderado fresco.",precio:"Consultar",imgs:["perfumes/perfume (13).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Afnan 9PM",desc:"Dulce, avainillado y ambarado.",precio:"Consultar",imgs:["perfumes/perfume (14).jpeg"]},
+{cat:"perfumes-mujer",titulo:"Lattafa Yara White / Moi",desc:"Cremoso, floral y almizclado.",precio:"Consultar",imgs:["perfumes/perfume (15).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Qaed Al Fursan",desc:"Tropical, piña y amaderado.",precio:"Consultar",imgs:["perfumes/perfume (16).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Fakhar Black",desc:"Aromático, frutal y fresco.",precio:"Consultar",imgs:["perfumes/perfume (17).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Emir Toffee Coffee",desc:"Gourmand café y caramelo.",precio:"Consultar",imgs:["perfumes/perfume (18).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Armaf Club de Nuit Sillage / Milestone",desc:"Fresco metálico y almizclado.",precio:"Consultar",imgs:["perfumes/perfume (19).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Al Haramain Amber Oud Silver",desc:"Fresco amaderado verde.",precio:"Consultar",imgs:["perfumes/perfume (20).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Asad Zanzibar",desc:"Tropical, coco y salado.",precio:"Consultar",imgs:["perfumes/perfume (21).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Al Haramain Amber Oud White",desc:"Oriental floral almizclado.",precio:"Consultar",imgs:["perfumes/perfume (22).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Armaf Club de Nuit Iconic",desc:"Elegante y sofisticado.",precio:"Consultar",imgs:["perfumes/perfume (23).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Fakhar Rose",desc:"Floral blanco ambarado.",precio:"Consultar",imgs:["perfumes/perfume (24).jpeg"]},
+{cat:"perfumes-mujer",titulo:"Lattafa Nebras",desc:"Vainilla gourmand, cacao y frutos rojos.",precio:"Consultar",imgs:["perfumes/perfume (25).jpeg"]},
+{cat:"perfumes-mujer",titulo:"Lattafa Raghba",desc:"Vainilla, oud y azúcar quemado.",precio:"Consultar",imgs:["perfumes/perfume (26).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Al Haramain Amber Oud Dubai Night Blue",desc:"Amaderado aromático.",precio:"Consultar",imgs:["perfumes/perfume (27).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Lattafa Ameerat Al Arab",desc:"Floral almizclado fresco.",precio:"Consultar",imgs:["perfumes/perfume (28).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Fragancia Importada Hombre",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (29).jpeg"]},
+{cat:"perfumes-hombre",titulo:"Fragancia Importada Hombre",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (30).jpeg"]},
+{cat:"perfumes-unisex",titulo:"Fragancia Oriental Unisex",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (31).jpeg"]},
+{cat:"perfumes-unisex",titulo:"Fragancia Oriental Unisex",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (32).jpeg"]},
+{cat:"perfumes-unisex",titulo:"Fragancia Oriental Unisex",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (33).jpeg"]},
+{cat:"perfumes-mujer",titulo:"Fragancia Importada Femenina",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (34).jpeg"]},
+{cat:"perfumes-unisex",titulo:"Fragancia Oriental Unisex",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (35).jpeg"]},
+{cat:"perfumes-mujer",titulo:"Fragancia Importada Femenina",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (36).jpeg"]},
+{cat:"perfumes-unisex",titulo:"Fragancia Oriental Unisex",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (37).jpeg"]},
+{cat:"perfumes-mujer",titulo:"Fragancia Importada Femenina",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (38).jpeg"]},
+{cat:"perfumes-unisex",titulo:"Fragancia Oriental Unisex",desc:"Alta fijación y calidad importada.",precio:"Consultar",imgs:["perfumes/perfume (39).jpeg"]}
+];
+let currentList=[],visibleCount=10,currentActiveCategory='';
+function showCategoriesMenu(){document.getElementById('categories-menu').style.display='block';document.getElementById('subcategories-view').style.display='none';document.getElementById('catalog-view').style.display='none';document.getElementById('searchInput').value=''}
+function showPerfumeSubmenu(){document.getElementById('categories-menu').style.display='none';document.getElementById('subcategories-view').style.display='block';document.getElementById('catalog-view').style.display='none'}
+function showCategory(c){currentActiveCategory=c;visibleCount=12;currentList=productos.filter(p=>p.cat===c);document.getElementById('categories-menu').style.display='none';document.getElementById('subcategories-view').style.display='none';document.getElementById('catalog-view').style.display='block';render()}
+function goBackFromCatalog(){if(currentActiveCategory.startsWith('perfumes-')) showPerfumeSubmenu(); else showCategoriesMenu()}
+function handleSearch(q){const t=q.toLowerCase().trim();if(!t){showCategoriesMenu();return}document.getElementById('categories-menu').style.display='none';document.getElementById('subcategories-view').style.display='none';document.getElementById('catalog-view').style.display='block';currentList=productos.filter(p=>p.titulo.toLowerCase().includes(t)||p.desc.toLowerCase().includes(t));visibleCount=12;render()}
+function render(){const container=document.getElementById('catalog-container');container.innerHTML='';const slice=currentList.slice(0,visibleCount);if(!slice.length){container.innerHTML='<p style="text-align:center;color:#d1a3ac;padding:20px">No se encontraron productos.</p>';document.getElementById('loadMoreBtn').style.display='none';return}
+slice.forEach((p,i)=>{const msg=encodeURIComponent(`Hola! Me interesa: *${p.titulo}* (${p.precio})`);const wa=`https://wa.me/${whatsappNumber}?text=${msg}`;const card=document.createElement('div');card.className='card';let varHtml='';if(p.imgs.length>1){varHtml='<div class="variants">'+p.imgs.map((im,j)=>`<img src="${im}" class="variant-thumb ${j===0?'active':''}" loading="lazy" onclick="changeImage(this,'img-${i}')" onerror="this.src='${PH}'">`).join('')+'</div>'};card.innerHTML=`<div class="img-container" onclick="openZoom(document.getElementById('img-${i}').src)"><img id="img-${i}" src="${p.imgs[0]}" alt="${p.titulo}" loading="lazy" onerror="this.src='${PH}'"><span class="zoom-hint">🔍 Toca para ampliar</span></div><div class="card-body"><h3 class="card-title">${p.titulo}</h3><p class="card-description">${p.desc}</p>${varHtml}<div class="card-price">${p.precio}</div><a href="${wa}" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a></div>`;container.appendChild(card)});document.getElementById('loadMoreBtn').style.display=visibleCount<currentList.length?'block':'none'}
+function loadMore(){visibleCount+=12;render()}
+function changeImage(el,id){const main=document.getElementById(id);main.src=el.src;el.parentElement.querySelectorAll('.variant-thumb').forEach(e=>e.classList.remove('active'));el.classList.add('active')}
+function openZoom(src){document.getElementById('modalImage').src=src;document.getElementById('imageModal').style.display='flex'}
+function closeZoom(){document.getElementById('imageModal').style.display='none'}
+</script>
 </body>
 </html>
