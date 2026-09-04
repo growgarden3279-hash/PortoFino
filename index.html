@@ -19,7 +19,7 @@
         }
 
         body {
-            background-color: #080808; /* Negro puro y urbano */
+            background-color: #080808;
             color: #f8fafc;
             padding-bottom: 40px;
             overflow-x: hidden;
@@ -36,7 +36,7 @@
             box-shadow: 0 4px 25px rgba(255, 30, 66, 0.25);
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
-            border-bottom: 4px solid #ff1e42; /* Rojo furioso urbano */
+            border-bottom: 4px solid #ff1e42;
         }
 
         .brand-container {
@@ -350,12 +350,44 @@
         <div class="container">
 
             <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar perfume, vaper, equipo de fútbol..." oninput="handleSearch(this.value)">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar shorts, jordan, vapers..." oninput="handleSearch(this.value)">
             </div>
 
             <!-- MENÚ DE CATEGORÍAS PRINCIPALES -->
             <div id="categories-menu">
                 <div class="categories-grid">
+                    <div class="category-card" onclick="showCategory('shortsjordan')">
+                        <img src="shortsjordan/jordanshort (1).jpeg" alt="Shorts Jordan" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
+                        <div class="category-info">
+                            <h2>Shorts Jordan</h2>
+                            <p>Shorts deportivos importados con diseños urbanos</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('jordan')">
+                        <img src="Jordan/jordan (1).jpeg" alt="Jordan" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
+                        <div class="category-info">
+                            <h2>Conjuntos Jordan</h2>
+                            <p>Remera y short importados estilo urbano / básquet</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('addidas')">
+                        <img src="Addidas/adidas (1).jpeg" alt="Addidas" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
+                        <div class="category-info">
+                            <h2>Conjuntos Addidas</h2>
+                            <p>Remera clásica con tiras y short deportivo</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('lacoste')">
+                        <img src="lacoste/lacoste (1).jpeg" alt="Lacoste" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
+                        <div class="category-info">
+                            <h2>Conjuntos Lacoste</h2>
+                            <p>Remera y short importados con diseño exclusivo</p>
+                        </div>
+                    </div>
+
                     <div class="category-card" onclick="showCategory('vapers')">
                         <img src="vapers/vaper (1).jpeg" alt="Vapers" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
                         <div class="category-info">
@@ -442,6 +474,37 @@
         const whatsappNumber = "5491132903865";
 
         const productos = [
+            // --- SHORTS JORDAN (Únicos sin repetir) ---
+            { categoria: "shortsjordan", titulo: "Short Jordan - Blanco con Detalles Negros", descripcion: "Short deportivo importado blanco con franjas geométricas y logo Jumpman negro.", precio: "$10.000", imagen: "shortsjordan/jordanshort (1).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Estampado Gráfico Blanco y Negro", descripcion: "Short deportivo importado con diseño urbano estampado y detalles en contraste.", precio: "$10.000", imagen: "shortsjordan/jordanshort (2).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Negro Clásico con Franjas Blancas", descripcion: "Short deportivo negro con bordes blancos y logotipo lateral.", precio: "$10.000", imagen: "shortsjordan/jordanshort (3).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Negro con Verde Neón", descripcion: "Short deportivo negro con detalles vibrantes en verde neón.", precio: "$10.000", imagen: "shortsjordan/jordanshort (4).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Rosado y Azul", descripcion: "Short deportivo importado con diseño psicodélico/urbano en tonos rosa y azul.", precio: "$10.000", imagen: "shortsjordan/jordanshort (5).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Azul Francia", descripcion: "Short deportivo azul vibrante con logotipos y cordones ajustables blancos.", precio: "$10.000", imagen: "shortsjordan/jordanshort (7).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Verde Oscuro / Botella", descripcion: "Short deportivo verde oscuro con bandas laterales geométricas.", precio: "$10.000", imagen: "shortsjordan/jordanshort (8).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Azul Oscuro / Marina", descripcion: "Short deportivo azul marino clásico de secado rápido con detalles blancos.", precio: "$10.000", imagen: "shortsjordan/jordanshort (9).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Blanco con Estampado Urbano", descripcion: "Short deportivo blanco con gráficos modernos y gran comodidad.", precio: "$10.000", imagen: "shortsjordan/jordanshort (10).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Rosa Pastel", descripcion: "Short deportivo color rosa suave con detalles negros en contraste.", precio: "$10.000", imagen: "shortsjordan/jordanshort (12).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Celeste Claro", descripcion: "Short deportivo en tono celeste suave con diseño urbano.", precio: "$10.000", imagen: "shortsjordan/jordanshort (13).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Rojo Fuego", descripcion: "Short deportivo rojo intenso con detalles negros en los laterales.", precio: "$10.000", imagen: "shortsjordan/jordanshort (14).jpeg" },
+            { categoria: "shortsjordan", titulo: "Short Jordan - Turquesa y Verde", descripcion: "Short deportivo con combinación de tonos turquesa, verde y detalles oscuros.", precio: "$10.000", imagen: "shortsjordan/jordanshort (15).jpeg" },
+
+            // --- CONJUNTOS JORDAN ---
+            { categoria: "jordan", titulo: "Conjunto Jordan - Negro y Blanco", descripcion: "Remera negra con gran logotipo Jumpman blanco y short deportivo con detalles geométricos.", precio: "$18.000", imagen: "Jordan/jordan (1).jpeg" },
+            { categoria: "jordan", titulo: "Conjunto Jordan - Rojo y Negro", descripcion: "Remera roja con diseño Jumpman negro y short deportivo negro con franjas rojas.", precio: "$18.000", imagen: "Jordan/jordan (2).jpeg" },
+            { categoria: "jordan", titulo: "Conjunto Jordan - Blanco y Negro", descripcion: "Remera blanca con silueta Jumpman negra y short deportivo negro a juego.", precio: "$18.000", imagen: "Jordan/jordan (3).jpeg" },
+
+            // --- CONJUNTOS ADDIDAS ---
+            { categoria: "addidas", titulo: "Conjunto Addidas - Negro con Tiras Blancas", descripcion: "Remera deportiva negra con franjas verticales frontales y short negro con tres tiras.", precio: "$18.000", imagen: "Addidas/adidas (1).jpeg" },
+            { categoria: "addidas", titulo: "Conjunto Addidas - Blanco con Negro", descripcion: "Remera deportiva blanca con diseño frontal y short negro con tiras blancas.", precio: "$18.000", imagen: "Addidas/adidas (2).jpeg" },
+            { categoria: "addidas", titulo: "Conjunto Addidas - Rojo y Negro", descripcion: "Remera roja con diseño clásico y short deportivo negro con tiras blancas.", precio: "$18.000", imagen: "Addidas/adidas (3).jpeg" },
+
+            // --- CONJUNTOS LACOSTE ---
+            { categoria: "lacoste", titulo: "Conjunto Lacoste - Blanco y Negro", descripcion: "Remera con cierre en el cuello, diseño de cocodrilo gigante y short deportivo negro.", precio: "$18.000", imagen: "lacoste/lacoste (1).jpeg" },
+            { categoria: "lacoste", titulo: "Conjunto Lacoste - Gris Oscuro", descripcion: "Remera con cierre en el cuello, diseño de cocodrilo gigante y short deportivo a juego.", precio: "$18.000", imagen: "lacoste/lacoste (2).jpeg" },
+            { categoria: "lacoste", titulo: "Conjunto Lacoste - Rojo y Negro", descripcion: "Remera roja con cuello y detalles negros con cierre, short deportivo negro con detalles rojos.", precio: "$18.000", imagen: "lacoste/lacoste (3).jpeg" },
+            { categoria: "lacoste", titulo: "Conjunto Lacoste - Negro con Detalles Blancos", descripcion: "Remera negra con diseño de cocodrilo en contraste, cuello blanco y short negro.", precio: "$18.000", imagen: "lacoste/lacoste (4).jpeg" },
+
             // --- VAPERS ---
             { categoria: "vapers", titulo: "Elfbar Ice King 40K Puff", descripcion: "Pod descartable de alta duración. Gran variedad de sabores frescos e intensos.", precio: "$38.500", imagen: "vapers/vaper (1).jpeg" },
             { categoria: "vapers", titulo: "Elfbar Ice King 40K Puff", descripcion: "Pod descartable de alta duración. Gran variedad de sabores frescos e intensos.", precio: "$38.500", imagen: "vapers/vaper (2).jpeg" },
