@@ -70,12 +70,6 @@
             filter: drop-shadow(0 2px 8px rgba(255,30,66,0.4));
         }
 
-        @media (max-width: 768px) {
-            .brand-title-img {
-                transform: scale(1.4);
-            }
-        }
-
         header p {
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
@@ -120,10 +114,7 @@
             transition: all 0.2s ease;
         }
 
-        .search-input::placeholder {
-            color: #666;
-        }
-
+        .search-input::placeholder { color: #666; }
         .search-input:focus {
             border-color: #ff1e42;
             box-shadow: 0 0 10px rgba(255, 30, 66, 0.25);
@@ -152,17 +143,13 @@
             border-color: #ff1e42;
             transform: translateY(-2px);
         }
-
-        .category-card:active {
-            transform: scale(0.97);
-        }
+        .category-card:active { transform: scale(0.97); }
 
         .category-thumb {
             width: 65px;
             height: 65px;
             border-radius: 12px;
             object-fit: contain;
-            object-position: center;
             background-color: #080808;
             flex-shrink: 0;
             border: 1px solid #333;
@@ -173,7 +160,6 @@
             font-size: 1.12rem;
             color: #ffffff;
             font-weight: 700;
-            letter-spacing: -0.3px;
         }
 
         .category-info p {
@@ -247,7 +233,6 @@
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 500;
             pointer-events: none;
             border: 1px solid #333;
         }
@@ -273,7 +258,6 @@
             font-weight: 800;
             color: #ff4d6d;
             margin-bottom: 16px;
-            letter-spacing: -0.5px;
         }
 
         .btn-whatsapp {
@@ -288,9 +272,7 @@
             font-size: 0.95rem;
             box-shadow: 0 4px 15px rgba(255, 30, 66, 0.4);
             border: none;
-            transition: transform 0.1s ease;
         }
-
         .btn-whatsapp:active { transform: scale(0.97); }
 
         .modal {
@@ -350,7 +332,7 @@
         <div class="container">
 
             <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar shorts, jordan, vapers..." oninput="handleSearch(this.value)">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar shorts, jordan, vapers, perfumes..." oninput="handleSearch(this.value)">
             </div>
 
             <!-- MENÚ DE CATEGORÍAS PRINCIPALES -->
@@ -405,10 +387,10 @@
                     </div>
 
                     <div class="category-card" onclick="showPerfumeSubmenu()">
-                        <img src="icono-perfumes.jpg" alt="Fragancias" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
+                        <img src="perfumes/perfume (7).jpeg" alt="Fragancias" class="category-thumb" loading="lazy" onerror="this.style.display='none'">
                         <div class="category-info">
-                            <h2>Fragancias</h2>
-                            <p>Perfumes importados de alta gama (Hombre, Mujer y Unisex)</p>
+                            <h2>Fragancias / Perfumes</h2>
+                            <p>Perfumes importados y árabes (Hombre, Mujer y Unisex)</p>
                         </div>
                     </div>
 
@@ -448,8 +430,8 @@
                     </div>
                     <div class="category-card" onclick="showCategory('perfumes-unisex')">
                         <div class="category-info" style="padding-left: 5px;">
-                            <h2>Perfumes Unisex</h2>
-                            <p>Fragancias versátiles y orientales para todos</p>
+                            <h2>Perfumes Unisex / Árabes</h2>
+                            <p>Fragancias versátiles, gourmand y de autor</p>
                         </div>
                     </div>
                 </div>
@@ -535,7 +517,7 @@
             { categoria: "cosmetica", titulo: "Máscara Capilar Karseell Maca Power Collagen (500ml)", descripcion: "Tratamiento reparador de colágeno y esencia de maca para cabello seco y químicamente tratado.", precio: "$0", imagen: "mascara-karseell.jpg" },
             { categoria: "cosmetica", titulo: "Aceite Capilar Karseell Maca Essence Oil (50ml)", descripcion: "Sérum reparador prensado en frío con esencia de Maca y Macadamia.", precio: "$10.000", imagen: "aceite-karseell.jpg" },
 
-            // --- CONJUNTOS DE FÚTBOL (CASACAS 1 A 27) ---
+            // --- CONJUNTOS DE FÚTBOL ---
             { categoria: "remeras", titulo: "AS Roma (Local)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (1).jpeg" },
             { categoria: "remeras", titulo: "FC Barcelona x Travis Scott (Cactus Jack Special Edition)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (2).jpeg" },
             { categoria: "remeras", titulo: "Real Madrid (Local Edición Retro Classics)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (3).jpeg" },
@@ -555,50 +537,123 @@
             { categoria: "remeras", titulo: "Real Madrid x Y-3 (Collab Special Edition - Negra)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (17).jpeg" },
             { categoria: "remeras", titulo: "FC Barcelona (Cuarta equipación / Edición especial negra y azulgrana)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (18).jpeg" },
             { categoria: "remeras", titulo: "Real Madrid (Tercera equipación / Colección Icon)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (19).jpeg" },
-            { categoria: "remeras", titulo: "Olympique de Marsella (Tercera equipación / Edición especial)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (20).jpeg" },
-            { categoria: "remeras", titulo: "Real Madrid (Tercera equipación / Colección Icon con cuello polo)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (21).jpeg" },
-            { categoria: "remeras", titulo: "Atlético de Madrid (Segunda equipación / Visitante con bastones rojiblancos)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (22).jpeg" },
-            { categoria: "remeras", titulo: "Olympique de Marsella (Local / Edición clásica con cuello celeste)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (23).jpeg" },
-            { categoria: "remeras", titulo: "Selección de Portugal (Edición especial / Alternativa roja con detalles verdes)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (24).jpeg" },
-            { categoria: "remeras", titulo: "FC Barcelona (Segunda equipación / Edición especial blanca con textura en relieve)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (25).jpeg" },
-            { categoria: "remeras", titulo: "Real Madrid (Local / Edición clásica blanca con detalles burdeos y oscuros)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (26).jpeg" },
-            { categoria: "remeras", titulo: "Inter de Milán (Local / Edición especial con bastones negros y azules difuminados)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (27).jpeg" }
+            { categoria: "remeras", titulo: "Inter de Milán (Local)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (20).jpeg" },
+            { categoria: "remeras", titulo: "Arsenal FC (Tercera equipación / Edición especial)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (21).jpeg" },
+            { categoria: "remeras", titulo: "Bayern Múnich (Local)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (22).jpeg" },
+            { categoria: "remeras", titulo: "Boca Juniors (Edición Especial / Retro Classics)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (23).jpeg" },
+            { categoria: "remeras", titulo: "River Plate (Edición Especial / Alternativa)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (24).jpeg" },
+            { categoria: "remeras", titulo: "Inter Miami (Local / Rosa oficial)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (25).jpeg" },
+            { categoria: "remeras", titulo: "Selección Argentina (Edición Campeones del Mundo)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (26).jpeg" },
+            { categoria: "remeras", titulo: "Al-Nassr (Local / Edición especial)", descripcion: "Casaca y short oficial importado con tecnología dry-fit de alta calidad.", precio: "$0", imagen: "remeras/casaca (27).jpeg" },
+
+            // --- PERFUMES ---
+            { categoria: "perfumes-unisex", titulo: "Xerjoff Erba Pura", descripcion: "Eau de Parfum, 100 ml. Fragancia frutal, cítrica y almizclada de alta gama.", precio: "$0", imagen: "perfumes/perfume (1).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Afnan Historic Doria", descripcion: "Eau de Parfum, 100 ml. Fragancia masculina elegante y de gran proyección.", precio: "$0", imagen: "perfumes/perfume (2).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Odyssey Tyrant Special Edition", descripcion: "For Men. Fragancia oriental especiada con notas intensas y sofisticadas.", precio: "$0", imagen: "perfumes/perfume (3).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Choco Overdose Give Me Gourmand", descripcion: "Eau de Parfum, 75 ml. Deliciosa fragancia gourmand con notas dulces a chocolate.", precio: "$0", imagen: "perfumes/perfume (4).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Asad", descripcion: "Eau de Parfum, 100 ml. Perfume masculino ámbar amaderado, cálido y especiado.", precio: "$0", imagen: "perfumes/perfume (5).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Asad Bourbon", descripcion: "Eau de Parfum, 100 ml. Intensas notas avainilladas y amaderadas con un toque licoroso.", precio: "$0", imagen: "perfumes/perfume (6).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Khamrah", descripcion: "Eau de Parfum. Fragancia unisex ámbar especiada con acordes avainillados y dátiles.", precio: "$0", imagen: "perfumes/perfume (7).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Al Haramain Amber Oud White Edition", descripcion: "Eau de Parfum unisex con notas florales, amaderadas y almizcladas de lujo.", precio: "$0", imagen: "perfumes/perfume (8).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud Bleu Edition", descripcion: "Eau de Parfum. Fragancia masculina fresca, especiada y amaderada.", precio: "$0", imagen: "perfumes/perfume (9).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Fakhar Lattafa Gold / Pride", descripcion: "Eau de Parfum. Fragancia femenina elegante, floral y frutal con gran estela.", precio: "$0", imagen: "perfumes/perfume (10).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit Intense Man", descripcion: "Eau de Toilette, 100 ml. Fragancia icónica masculina amaderada especiada.", precio: "$0", imagen: "perfumes/perfume (11).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit Urban Man Elixir", descripcion: "Eau de Parfum, 105 ml. Versión intensa, frutal y moderna para hombre.", precio: "$0", imagen: "perfumes/perfume (12).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Al Haramain Amber Oud Gold Edition", descripcion: "Presentación 60 ml. Aroma frutal, dulce, avainillado y ambarado sumamente seductor.", precio: "$0", imagen: "perfumes/perfume (13).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Al Haramain Odyssey Mandarin Sky Elixir", descripcion: "Limited Edition Eau de Parfum. Cítrico, dulce y amaderado vibrante.", precio: "$0", imagen: "perfumes/perfume (14).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Yara Moi", descripcion: "Eau de Parfum, 100 ml. Fragancia femenina ambarina con notas florales y caramelo.", precio: "$0", imagen: "perfumes/perfume (15).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Odyssey Mega Limited Edition", descripcion: "Eau de Parfum. Fragancia masculina fresca, acuática y especiada.", precio: "$0", imagen: "perfumes/perfume (16).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Odyssey Artisto The Red Edition", descripcion: "Eau de Parfum. Fragancia elegante con matices cálidos y especiados.", precio: "$0", imagen: "perfumes/perfume (17).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Odyssey Toffee Coffee Café Edition", descripcion: "Eau de Parfum. Aroma adictivo gourmand con notas de café y toffee.", precio: "$0", imagen: "perfumes/perfume (18).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Bharara King", descripcion: "Eau de Parfum, 100 ml (incluye miniatura). Fragancia dulce, frutal y amaderada de alta duración.", precio: "$0", imagen: "perfumes/perfume (19).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Al Haramain Amber Oud Carbon Edition", descripcion: "Eau de Parfum. Fragancia masculina aromática, fresca y amaderada.", precio: "$0", imagen: "perfumes/perfume (20).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Bade'e Al Oud Honor & Glory", descripcion: "Eau de Parfum. Notas exóticas, especiadas y dulces con un toque de piña y crema brûlée.", precio: "$0", imagen: "perfumes/perfume (21).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Armaf Club de Nuit Iconic", descripcion: "Eau de Parfum, 105 ml. Fragancia masculina moderna, fresca y sofisticada.", precio: "$0", imagen: "perfumes/perfume (22).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Pride Fakhar Rose", descripcion: "Eau de Parfum. Exquisita fragancia femenina floral blanca, tuberosa y frutal.", precio: "$0", imagen: "perfumes/perfume (23).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Bade'e Al Oud Noble Blush", descripcion: "Eau de Parfum. Fragancia oriental delicada con matices florales y suaves.", precio: "$0", imagen: "perfumes/perfume (24).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Khamrah Qahwa", descripcion: "Eau de Parfum. Edición especial con acordes intensos de café, canela y vainilla.", precio: "$0", imagen: "perfumes/perfume (25).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Give Me Gourmand Mallow Madness", descripcion: "Eau de Parfum, 75 ml. Fragancia dulce inspirada en malvaviscos y notas azucaradas.", precio: "$0", imagen: "perfumes/perfume (26).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa The Kingdom", descripcion: "Eau de Parfum, 100 ml. Fragancia imponente con acordes amaderados y especiados.", precio: "$0", imagen: "perfumes/perfume (27).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Give Me Gourmand Vanilla Freak", descripcion: "Eau de Parfum. Fragancia ultra dulce con notas profundas de vainilla pura.", precio: "$0", imagen: "perfumes/perfume (28).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "French Avenue Liquid Brun", descripcion: "Eau de Parfum. Fragancia nicho elegante con acordes avainillados y especiados.", precio: "$0", imagen: "perfumes/perfume (29).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Odyssey Ba Na Mas", descripcion: "Eau de Parfum, Tropical Collection. Notas tropicales exóticas y dulces.", precio: "$0", imagen: "perfumes/perfume (30).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Yara Elixir", descripcion: "Eau de Parfum, 100 ml. Versión profunda, seductora y ambarada de la línea Yara.", precio: "$0", imagen: "perfumes/perfume (31).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Al Haramain Amber Oud Dubai Night", descripcion: "Extrait de Parfum, 75 ml. Fragancia nocturna, lujosa, intensa y misteriosa.", precio: "$0", imagen: "perfumes/perfume (32).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Yara (Clásica)", descripcion: "Eau de Parfum, 100 ml. Fragancia cremosa, floral y avainillada muy popular.", precio: "$0", imagen: "perfumes/perfume (33).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Yara Rosa", descripcion: "Eau de Parfum, 100 ml. Notas tropicales dulces, orquídea y sándalo.", precio: "$0", imagen: "perfumes/perfume (34).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Bade'e Al Oud Oud for Glory", descripcion: "Eau de Parfum, 100 ml. Oud amaderado especiado de alta gama.", precio: "$0", imagen: "perfumes/perfume (35).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Eclaire", descripcion: "Eau de Parfum, 100 ml. Aroma gourmand con notas de caramelo, leche y vainilla.", precio: "$0", imagen: "perfumes/perfume (36).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Lattafa Ishq Al Shuyukh Gold", descripcion: "Eau de Parfum, 100 ml. Caramelo, cuero y vainilla oriental.", precio: "$0", imagen: "perfumes/perfume (37).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Qaed Al Fursan Unlimited", descripcion: "Eau de Parfum, 100 ml. Notas cremosas de coco, coco-latte y flores blancas.", precio: "$0", imagen: "perfumes/perfume (38).jpeg" },
+            { categoria: "perfumes-hombre", titulo: "Lattafa Najdia", descripcion: "Eau de Parfum, 100 ml. Fragancia acuática, fresca y especiada para hombre.", precio: "$0", imagen: "perfumes/perfume (39).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Maison Alhambra Kismet Angel", descripcion: "Eau de Parfum, 100 ml. Inspirado en notas licorosas de cognac, canela y vainilla.", precio: "$0", imagen: "perfumes/perfume (40).jpeg" },
+            { categoria: "perfumes-mujer", titulo: "Lattafa Mayar", descripcion: "Eau de Parfum, 100 ml. Frutal vibrante con frambuesa, lichi y notas florales.", precio: "$0", imagen: "perfumes/perfume (41).jpeg" },
+            { categoria: "perfumes-unisex", titulo: "Maison Alhambra Woody Oud", descripcion: "Eau de Parfum, 100 ml. Elegante fragancia amaderada de oud y especias ricas.", precio: "$0", imagen: "perfumes/perfume (42).jpeg" }
         ];
 
-        let currentCategory = '';
-        let isSearching = false;
+        let enSubmenuPerfumes = false;
 
-        function showCategoriesMenu() {
-            document.getElementById('categories-menu').style.display = 'block';
-            document.getElementById('subcategories-view').style.display = 'none';
-            document.getElementById('catalog-view').style.display = 'none';
-            document.getElementById('searchInput').value = '';
-            currentCategory = '';
-            isSearching = false;
+        function renderProducts(lista) {
+            const container = document.getElementById("catalog-container");
+            container.innerHTML = "";
+
+            if (lista.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color:#888; padding: 30px; font-size:0.95rem;">No se encontraron productos en esta sección.</p>`;
+                return;
+            }
+
+            lista.forEach(p => {
+                const mensaje = encodeURIComponent(`Hola! Me interesa el producto: *${p.titulo}* (${p.precio}) de Pedroso Store.`);
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${mensaje}`;
+
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <div class="img-container" onclick="openZoom('${p.imagen}')">
+                        <img src="${p.imagen}" alt="${p.titulo}" loading="lazy" onerror="this.src='logo.jpg'">
+                        <div class="zoom-hint">🔍 Toca para ampliar</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">${p.titulo}</h3>
+                        <p class="card-description">${p.descripcion}</p>
+                        <div class="card-price">${p.precio}</div>
+                        <a href="${whatsappUrl}" target="_blank" class="btn-whatsapp">Comprar por WhatsApp</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function showCategory(catKey) {
+            enSubmenuPerfumes = false;
+            document.getElementById("categories-menu").style.display = "none";
+            document.getElementById("subcategories-view").style.display = "none";
+            document.getElementById("catalog-view").style.display = "block";
+            
+            const filtrados = productos.filter(p => p.categoria === catKey);
+            renderProducts(filtrados);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function showPerfumeSubmenu() {
-            document.getElementById('categories-menu').style.display = 'none';
-            document.getElementById('subcategories-view').style.display = 'block';
-            document.getElementById('catalog-view').style.display = 'none';
+            enSubmenuPerfumes = true;
+            document.getElementById("categories-menu").style.display = "none";
+            document.getElementById("subcategories-view").style.display = "block";
+            document.getElementById("catalog-view").style.display = "none";
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showCategory(categoria) {
-            currentCategory = categoria;
-            isSearching = false;
-            document.getElementById('categories-menu').style.display = 'none';
-            document.getElementById('subcategories-view').style.display = 'none';
-            document.getElementById('catalog-view').style.display = 'block';
-            
-            const filtrados = productos.filter(p => p.categoria === categoria);
-            renderCatalog(filtrados);
+        function showCategoriesMenu() {
+            enSubmenuPerfumes = false;
+            document.getElementById("categories-menu").style.display = "block";
+            document.getElementById("subcategories-view").style.display = "none";
+            document.getElementById("catalog-view").style.display = "none";
+            document.getElementById("searchInput").value = "";
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function goBackFromCatalog() {
-            if (currentCategory.startsWith('perfumes-')) {
+            if (enSubmenuPerfumes) {
                 showPerfumeSubmenu();
             } else {
                 showCategoriesMenu();
@@ -606,72 +661,39 @@
         }
 
         function handleSearch(query) {
-            const term = query.toLowerCase().trim();
-            const catalogView = document.getElementById('catalog-view');
-            const categoriesMenu = document.getElementById('categories-menu');
-            const subcategoriesView = document.getElementById('subcategories-view');
+            const text = query.toLowerCase().trim();
+            const categoriesMenu = document.getElementById("categories-menu");
+            const subcategoriesView = document.getElementById("subcategories-view");
+            const catalogView = document.getElementById("catalog-view");
 
-            if (term === '') {
-                if (isSearching) {
-                    showCategoriesMenu();
-                }
+            if (text === "") {
+                showCategoriesMenu();
                 return;
             }
 
-            isSearching = true;
-            categoriesMenu.style.display = 'none';
-            subcategoriesView.style.display = 'none';
-            catalogView.style.display = 'block';
+            enSubmenuPerfumes = false;
+            categoriesMenu.style.display = "none";
+            subcategoriesView.style.display = "none";
+            catalogView.style.display = "block";
 
-            const filtrados = productos.filter(p => 
-                p.titulo.toLowerCase().includes(term) || 
-                p.descripcion.toLowerCase().includes(term) ||
-                p.categoria.toLowerCase().includes(term)
+            const resultados = productos.filter(p => 
+                p.titulo.toLowerCase().includes(text) || 
+                p.descripcion.toLowerCase().includes(text) || 
+                p.categoria.toLowerCase().includes(text)
             );
 
-            renderCatalog(filtrados);
-        }
-
-        function renderCatalog(items) {
-            const container = document.getElementById('catalog-container');
-            container.innerHTML = '';
-
-            if (items.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #888; padding: 40px 0; font-size: 1rem;">No se encontraron productos.</p>';
-                return;
-            }
-
-            items.forEach(item => {
-                const mensaje = encodeURIComponent(`Hola! Me interesa el producto: *${item.titulo}* (${item.precio})`);
-                const whatsappLink = `https://wa.me/${whatsappNumber}?text=${mensaje}`;
-
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <div class="img-container" onclick="openZoom('${item.imagen}')">
-                        <img src="${item.imagen}" alt="${item.titulo}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x380/141414/666?text=Imagen+No+Disponible'">
-                        <div class="zoom-hint">🔍 Tocar para ampliar</div>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">${item.titulo}</h3>
-                        <p class="card-description">${item.descripcion}</p>
-                        <div class="card-price">${item.precio}</div>
-                        <a href="${whatsappLink}" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+            renderProducts(resultados);
         }
 
         function openZoom(imgSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'flex';
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
             modalImg.src = imgSrc;
         }
 
         function closeZoom() {
-            document.getElementById('imageModal').style.display = 'none';
+            document.getElementById("imageModal").style.display = "none";
         }
     </script>
 </body>
