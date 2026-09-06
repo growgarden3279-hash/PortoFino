@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pedroso Store - Catálogo Digital</title>
+    <title>Portofino Store - Catálogo Digital</title>
 
-    <!-- FAVICON (Icono de la pestaña del navegador) -->
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="logo.png">
 
     <!-- OPEN GRAPH (Vista previa al compartir por WhatsApp o redes) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Pedroso Store - Catálogo Digital">
+    <meta property="og:title" content="Portofino Store - Catálogo Digital">
     <meta property="og:description" content="Catálogo Urbano & Importados: Indumentaria, Vapers, Perfumes y más. ¡Pedí directo por WhatsApp!">
-    <meta property="og:image" content="https://portofinostore.github.io/-/">
-    <meta property="og:url" content="https://portofinostore.github.io/-/">
-    <meta property="og:site_name" content="Pedroso Store">
+    <meta property="og:image" content="https://portofinostore.github.io/logo.png">
+    <meta property="og:url" content="https://portofinostore.github.io/">
+    <meta property="og:site_name" content="Portofino Store">
     <meta property="og:locale" content="es_AR">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Color de fondo oscuro base en HTML para evitar bloques blancos al scrollear */
         html {
             background-color: #09090b;
             min-height: 100%;
@@ -53,7 +52,6 @@
         }
 
         body {
-            /* Fondo corregido sin 'fixed' para evitar fallos de renderizado en móviles */
             background: linear-gradient(180deg, rgba(9, 9, 11, 0.85) 0%, rgba(18, 18, 22, 0.90) 50%, rgba(9, 9, 11, 0.95) 100%), 
                         url('fondo-noche.webp') center/cover no-repeat;
             background-color: #09090b;
@@ -84,17 +82,6 @@
             align-items: center;
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        .brand-logo {
-            width: 75px;
-            height: 75px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid #33333e;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            background-color: #000;
         }
 
         .brand-title-img {
@@ -373,8 +360,7 @@
 
     <header>
         <div class="brand-container">
-            <img src="logo.webp" alt="Logo Pedroso Store" class="brand-logo" onerror="this.style.display='none'">
-            <img src="titulo.webp" alt="Pedroso Store" class="brand-title-img" onerror="this.style.display='none'">
+            <img src="titulo.webp" alt="Portofino Store" class="brand-title-img" onerror="this.style.display='none'">
             <p id="header-subtitle">Catálogo Urbano & Importados</p>
         </div>
     </header>
@@ -638,7 +624,6 @@
 
         let enSubmenuPerfumes = false;
 
-        // SISTEMA DE NAVEGACIÓN Y HISTORIAL
         function switchView(viewName, isBackAction = false) {
             const categoriesMenu = document.getElementById("categories-menu");
             const subcategoriesView = document.getElementById("subcategories-view");
@@ -674,7 +659,6 @@
             }
         });
 
-        // Inicializa el estado base en la historia
         history.replaceState({ view: "categories", enSubmenu: false }, "", "");
 
         function renderProducts(lista) {
@@ -687,7 +671,7 @@
             }
 
             lista.forEach(p => {
-                const mensaje = encodeURIComponent(`Hola! Me interesa el producto: *${p.titulo}* (${p.precio}) de Pedroso Store.`);
+                const mensaje = encodeURIComponent(`Hola! Me interesa el producto: *${p.titulo}* (${p.precio}) de Portofino Store.`);
                 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${mensaje}`;
 
                 const card = document.createElement("div");
