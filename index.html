@@ -31,21 +31,22 @@
             pointer-events: none;
             animation: flotar 6s ease-in-out infinite;
             z-index: 1;
-            filter: invert(1) brightness(0.8); /* Adapta las nubes al tema oscuro */
+            filter: invert(1) brightness(0.8);
         }
 
         body {
-    /* Reemplazá 'fondo-noche.jpg' por la ruta de tu imagen */
-    background: linear-gradient(180deg, rgba(9, 9, 11, 0.75) 0%, rgba(24, 24, 27, 0.85) 100%), 
-                url('fondo-noche.jpg') center/cover no-repeat fixed;
-    color: #f1f5f9;
-    padding-bottom: 40px;
-    overflow-x: hidden;
-    min-height: 100vh;
-}
+            /* Fondo optimizado con gradiente multicapa e imagen fija */
+            background: linear-gradient(180deg, rgba(9, 9, 11, 0.85) 0%, rgba(18, 18, 22, 0.90) 50%, rgba(9, 9, 11, 0.95) 100%), 
+                        url('fondo-noche.jpg') center/cover no-repeat fixed;
+            color: #f1f5f9;
+            padding-bottom: 40px;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
         header {
-            background: linear-gradient(135deg, #000000 0%, #111115 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(17, 17, 21, 0.95) 100%);
+            backdrop-filter: blur(10px);
             color: white;
             text-align: center;
             padding: 25px 15px;
@@ -127,7 +128,8 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 0.95rem;
             outline: none;
-            background-color: rgba(22, 22, 26, 0.95);
+            background-color: rgba(22, 22, 26, 0.85);
+            backdrop-filter: blur(8px);
             color: #f8fafc;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.2s ease;
@@ -136,7 +138,7 @@
         .search-input::placeholder { color: #64748b; }
         .search-input:focus {
             border-color: #e2e8f0;
-            background-color: #18181c;
+            background-color: rgba(24, 24, 28, 0.95);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
@@ -147,7 +149,8 @@
         }
 
         .category-card {
-            background: rgba(22, 22, 26, 0.95); 
+            background: rgba(22, 22, 26, 0.85); 
+            backdrop-filter: blur(12px);
             border-radius: 20px;
             padding: 16px 20px;
             display: flex;
@@ -162,7 +165,7 @@
         .category-card:hover {
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            background: #1e1e24;
+            background: rgba(30, 30, 36, 0.9);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
         .category-card:active { transform: scale(0.97); }
@@ -195,7 +198,8 @@
         }
 
         .btn-back {
-            background-color: rgba(30, 30, 36, 0.9);
+            background-color: rgba(30, 30, 36, 0.85);
+            backdrop-filter: blur(8px);
             color: #f8fafc;
             border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 10px 18px;
@@ -220,7 +224,8 @@
         }
 
         .card {
-            background: rgba(22, 22, 26, 0.95); 
+            background: rgba(22, 22, 26, 0.85); 
+            backdrop-filter: blur(12px);
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -437,7 +442,7 @@
 
             <!-- SUBCATEGORÍAS DE PERFUMES -->
             <div id="subcategories-view" class="subcategories-section">
-                <button class="btn-back" onclick="showCategoriesMenu()">Volver a Categorías</button>
+                <button class="btn-back" onclick="goBackFromSubmenu()">Volver a Categorías</button>
                 <div class="categories-grid">
                     <div class="category-card" onclick="showCategory('perfumes-hombre')">
                         <div class="category-info" style="padding-left: 5px;">
@@ -614,6 +619,45 @@
 
         let enSubmenuPerfumes = false;
 
+        // SISTEMA DE NAVEGACIÓN Y HISTORIAL
+        function switchView(viewName, isBackAction = false) {
+            const categoriesMenu = document.getElementById("categories-menu");
+            const subcategoriesView = document.getElementById("subcategories-view");
+            const catalogView = document.getElementById("catalog-view");
+
+            categoriesMenu.style.display = "none";
+            subcategoriesView.style.display = "none";
+            catalogView.style.display = "none";
+
+            if (viewName === "categories") {
+                categoriesMenu.style.display = "block";
+                enSubmenuPerfumes = false;
+                document.getElementById("searchInput").value = "";
+            } else if (viewName === "subcategories") {
+                subcategoriesView.style.display = "block";
+                enSubmenuPerfumes = true;
+            } else if (viewName === "catalog") {
+                catalogView.style.display = "block";
+            }
+
+            if (!isBackAction) {
+                history.pushState({ view: viewName, enSubmenu: enSubmenuPerfumes }, "", "");
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener("popstate", function(e) {
+            if (e.state && e.state.view) {
+                enSubmenuPerfumes = !!e.state.enSubmenu;
+                switchView(e.state.view, true);
+            } else {
+                switchView("categories", true);
+            }
+        });
+
+        // Inicializa el estado base en la historia
+        history.replaceState({ view: "categories", enSubmenu: false }, "", "");
+
         function renderProducts(lista) {
             const container = document.getElementById("catalog-container");
             container.innerHTML = "";
@@ -646,46 +690,29 @@
         }
 
         function showCategory(catKey) {
-            enSubmenuPerfumes = false;
-            document.getElementById("categories-menu").style.display = "none";
-            document.getElementById("subcategories-view").style.display = "none";
-            document.getElementById("catalog-view").style.display = "block";
-            
             const filtrados = productos.filter(p => p.categoria === catKey);
             renderProducts(filtrados);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            switchView("catalog");
         }
 
         function showPerfumeSubmenu() {
-            enSubmenuPerfumes = true;
-            document.getElementById("categories-menu").style.display = "none";
-            document.getElementById("subcategories-view").style.display = "block";
-            document.getElementById("catalog-view").style.display = "none";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            switchView("subcategories");
         }
 
         function showCategoriesMenu() {
-            enSubmenuPerfumes = false;
-            document.getElementById("categories-menu").style.display = "block";
-            document.getElementById("subcategories-view").style.display = "none";
-            document.getElementById("catalog-view").style.display = "none";
-            document.getElementById("searchInput").value = "";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            switchView("categories");
+        }
+
+        function goBackFromSubmenu() {
+            history.back();
         }
 
         function goBackFromCatalog() {
-            if (enSubmenuPerfumes) {
-                showPerfumeSubmenu();
-            } else {
-                showCategoriesMenu();
-            }
+            history.back();
         }
 
         function handleSearch(query) {
             const text = query.toLowerCase().trim();
-            const categoriesMenu = document.getElementById("categories-menu");
-            const subcategoriesView = document.getElementById("subcategories-view");
-            const catalogView = document.getElementById("catalog-view");
 
             if (text === "") {
                 showCategoriesMenu();
@@ -693,9 +720,7 @@
             }
 
             enSubmenuPerfumes = false;
-            categoriesMenu.style.display = "none";
-            subcategoriesView.style.display = "none";
-            catalogView.style.display = "block";
+            switchView("catalog");
 
             const resultados = productos.filter(p => 
                 p.titulo.toLowerCase().includes(text) || 
