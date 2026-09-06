@@ -18,6 +18,12 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        /* Color de fondo oscuro base en HTML para evitar bloques blancos al scrollear */
+        html {
+            background-color: #09090b;
+            min-height: 100%;
+        }
+
         @keyframes flotar {
             0% { transform: translateY(0px) translateX(0px); }
             50% { transform: translateY(-15px) translateX(10px); }
@@ -35,9 +41,10 @@
         }
 
         body {
-            /* Fondo optimizado con gradiente multicapa e imagen fija en WebP */
+            /* Fondo corregido sin 'fixed' para evitar fallos de renderizado en móviles */
             background: linear-gradient(180deg, rgba(9, 9, 11, 0.85) 0%, rgba(18, 18, 22, 0.90) 50%, rgba(9, 9, 11, 0.95) 100%), 
-                        url('fondo-noche.webp') center/cover no-repeat fixed;
+                        url('fondo-noche.webp') center/cover no-repeat;
+            background-color: #09090b;
             color: #f1f5f9;
             padding-bottom: 40px;
             overflow-x: hidden;
